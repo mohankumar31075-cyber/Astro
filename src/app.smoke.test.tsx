@@ -23,7 +23,7 @@ beforeAll(() => {
 });
 
 const ROUTES: Array<[string, string[]]> = [
-  ['/', ['AstroSutra']],
+  ['/', ['AstroSutra', 'Free to use. Packs only if you want more.']],
   ['/welcome', ['Who is this chart for']],
   ['/how-it-works', ['How the numbers are made']],
   ['/legal/privacy', ['Privacy policy']],
@@ -34,7 +34,7 @@ const ROUTES: Array<[string, string[]]> = [
   ['/chart', ['Your birth chart']],
   ['/horoscope', ['Why this reading']],
   ['/horoscope/leo', ['Leo']],
-  ['/ask', ['Ask Sutra']],
+  ['/ask', ['Ask Sutra', 'left today.']],
   ['/match', ['Compatibility']],
   ['/reports', ['Your reports']],
   ['/reports/career', ['The field you are built for']],
@@ -43,10 +43,10 @@ const ROUTES: Array<[string, string[]]> = [
   ['/reports/money', ['What you accumulate']],
   ['/reports/life', ['The stage: your ascendant']],
   ['/panchang', ['Five limbs of the day']],
-  ['/family', ['Your circle']],
+  ['/family', ['Your circle', 'on the free tier']],
   ['/settings', ['Reading preferences']],
   ['/learn', ['The vocabulary, explained']],
-  ['/packs', ['Free forever, or packs that never expire']],
+  ['/packs', ['Free forever, or packs that never expire', 'Free tier · 3 questions left today']],
   ['/not-a-real-page', ['This house is empty']],
 ];
 
