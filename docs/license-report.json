@@ -1,0 +1,949 @@
+{
+  "generatedAt": "2026-10-26T13:38:34.980Z",
+  "project": "AstroSutra",
+  "summary": {
+    "totalPackages": 96,
+    "productionPackages": 11,
+    "developmentPackages": 85,
+    "licenseCounts": {
+      "OFL-1.1": 3,
+      "MIT": 56,
+      "Apache-2.0": 23,
+      "MPL-2.0": 12,
+      "ISC": 1,
+      "BSD-3-Clause": 1
+    },
+    "violations": 0,
+    "warnings": 45
+  },
+  "allowedLicenses": [
+    "MIT",
+    "ISC",
+    "Apache-2.0",
+    "BSD-2-Clause",
+    "BSD-3-Clause",
+    "0BSD",
+    "OFL-1.1",
+    "CC0-1.0",
+    "Unlicense",
+    "BlueOak-1.0.0",
+    "Python-2.0",
+    "MPL-2.0"
+  ],
+  "production": [
+    {
+      "name": "@fontsource/cormorant-garamond",
+      "version": "5.3.0",
+      "license": "OFL-1.1",
+      "dev": false,
+      "licenseFile": "LICENSE",
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/@fontsource/cormorant-garamond/-/cormorant-garamond-5.3.0.tgz"
+    },
+    {
+      "name": "@fontsource/manrope",
+      "version": "5.3.0",
+      "license": "OFL-1.1",
+      "dev": false,
+      "licenseFile": "LICENSE",
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/@fontsource/manrope/-/manrope-5.3.0.tgz"
+    },
+    {
+      "name": "@fontsource/noto-sans-symbols-2",
+      "version": "5.3.0",
+      "license": "OFL-1.1",
+      "dev": false,
+      "licenseFile": "LICENSE",
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/@fontsource/noto-sans-symbols-2/-/noto-sans-symbols-2-5.3.0.tgz"
+    },
+    {
+      "name": "astronomy-engine",
+      "version": "2.1.19",
+      "license": "MIT",
+      "dev": false,
+      "licenseFile": null,
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/astronomy-engine/-/astronomy-engine-2.1.19.tgz"
+    },
+    {
+      "name": "cookie",
+      "version": "1.1.1",
+      "license": "MIT",
+      "dev": false,
+      "licenseFile": "LICENSE",
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/cookie/-/cookie-1.1.1.tgz"
+    },
+    {
+      "name": "react",
+      "version": "19.3.1",
+      "license": "MIT",
+      "dev": false,
+      "licenseFile": "LICENSE",
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/react/-/react-19.3.1.tgz"
+    },
+    {
+      "name": "react-dom",
+      "version": "19.3.1",
+      "license": "MIT",
+      "dev": false,
+      "licenseFile": "LICENSE",
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/react-dom/-/react-dom-19.3.1.tgz"
+    },
+    {
+      "name": "react-router",
+      "version": "7.18.4",
+      "license": "MIT",
+      "dev": false,
+      "licenseFile": "LICENSE.md",
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/react-router/-/react-router-7.18.4.tgz"
+    },
+    {
+      "name": "react-router-dom",
+      "version": "7.18.4",
+      "license": "MIT",
+      "dev": false,
+      "licenseFile": "LICENSE.md",
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/react-router-dom/-/react-router-dom-7.18.4.tgz"
+    },
+    {
+      "name": "scheduler",
+      "version": "0.28.0",
+      "license": "MIT",
+      "dev": false,
+      "licenseFile": "LICENSE",
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/scheduler/-/scheduler-0.28.0.tgz"
+    },
+    {
+      "name": "set-cookie-parser",
+      "version": "2.7.3",
+      "license": "MIT",
+      "dev": false,
+      "licenseFile": "LICENSE",
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/set-cookie-parser/-/set-cookie-parser-2.7.3.tgz"
+    }
+  ],
+  "development": [
+    {
+      "name": "@jridgewell/resolve-uri",
+      "version": "3.1.2",
+      "license": "MIT",
+      "dev": true,
+      "licenseFile": "LICENSE",
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/@jridgewell/resolve-uri/-/resolve-uri-3.1.2.tgz"
+    },
+    {
+      "name": "@jridgewell/sourcemap-codec",
+      "version": "1.6.0",
+      "license": "MIT",
+      "dev": true,
+      "licenseFile": "LICENSE",
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/@jridgewell/sourcemap-codec/-/sourcemap-codec-1.6.0.tgz"
+    },
+    {
+      "name": "@jridgewell/trace-mapping",
+      "version": "0.3.31",
+      "license": "MIT",
+      "dev": true,
+      "licenseFile": "LICENSE",
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/@jridgewell/trace-mapping/-/trace-mapping-0.3.31.tgz"
+    },
+    {
+      "name": "@oxc-project/types",
+      "version": "0.155.0",
+      "license": "MIT",
+      "dev": true,
+      "licenseFile": "LICENSE",
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/@oxc-project/types/-/types-0.155.0.tgz"
+    },
+    {
+      "name": "@rolldown/binding-android-arm-eabi",
+      "version": "1.2.15",
+      "license": "MIT",
+      "dev": true,
+      "licenseFile": null,
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/@rolldown/binding-android-arm-eabi/-/binding-android-arm-eabi-1.2.15.tgz"
+    },
+    {
+      "name": "@rolldown/binding-android-arm64",
+      "version": "1.2.15",
+      "license": "MIT",
+      "dev": true,
+      "licenseFile": null,
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/@rolldown/binding-android-arm64/-/binding-android-arm64-1.2.15.tgz"
+    },
+    {
+      "name": "@rolldown/binding-darwin-arm64",
+      "version": "1.2.15",
+      "license": "MIT",
+      "dev": true,
+      "licenseFile": null,
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/@rolldown/binding-darwin-arm64/-/binding-darwin-arm64-1.2.15.tgz"
+    },
+    {
+      "name": "@rolldown/binding-darwin-x64",
+      "version": "1.2.15",
+      "license": "MIT",
+      "dev": true,
+      "licenseFile": null,
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/@rolldown/binding-darwin-x64/-/binding-darwin-x64-1.2.15.tgz"
+    },
+    {
+      "name": "@rolldown/binding-freebsd-x64",
+      "version": "1.2.15",
+      "license": "MIT",
+      "dev": true,
+      "licenseFile": null,
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/@rolldown/binding-freebsd-x64/-/binding-freebsd-x64-1.2.15.tgz"
+    },
+    {
+      "name": "@rolldown/binding-linux-arm-gnueabihf",
+      "version": "1.2.15",
+      "license": "MIT",
+      "dev": true,
+      "licenseFile": null,
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/@rolldown/binding-linux-arm-gnueabihf/-/binding-linux-arm-gnueabihf-1.2.15.tgz"
+    },
+    {
+      "name": "@rolldown/binding-linux-arm64-gnu",
+      "version": "1.2.15",
+      "license": "MIT",
+      "dev": true,
+      "licenseFile": null,
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/@rolldown/binding-linux-arm64-gnu/-/binding-linux-arm64-gnu-1.2.15.tgz"
+    },
+    {
+      "name": "@rolldown/binding-linux-arm64-musl",
+      "version": "1.2.15",
+      "license": "MIT",
+      "dev": true,
+      "licenseFile": null,
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/@rolldown/binding-linux-arm64-musl/-/binding-linux-arm64-musl-1.2.15.tgz"
+    },
+    {
+      "name": "@rolldown/binding-linux-ppc64-gnu",
+      "version": "1.2.15",
+      "license": "MIT",
+      "dev": true,
+      "licenseFile": null,
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/@rolldown/binding-linux-ppc64-gnu/-/binding-linux-ppc64-gnu-1.2.15.tgz"
+    },
+    {
+      "name": "@rolldown/binding-linux-s390x-gnu",
+      "version": "1.2.15",
+      "license": "MIT",
+      "dev": true,
+      "licenseFile": null,
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/@rolldown/binding-linux-s390x-gnu/-/binding-linux-s390x-gnu-1.2.15.tgz"
+    },
+    {
+      "name": "@rolldown/binding-linux-x64-gnu",
+      "version": "1.2.15",
+      "license": "MIT",
+      "dev": true,
+      "licenseFile": null,
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/@rolldown/binding-linux-x64-gnu/-/binding-linux-x64-gnu-1.2.15.tgz"
+    },
+    {
+      "name": "@rolldown/binding-linux-x64-musl",
+      "version": "1.2.15",
+      "license": "MIT",
+      "dev": true,
+      "licenseFile": null,
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/@rolldown/binding-linux-x64-musl/-/binding-linux-x64-musl-1.2.15.tgz"
+    },
+    {
+      "name": "@rolldown/binding-openharmony-arm64",
+      "version": "1.2.15",
+      "license": "MIT",
+      "dev": true,
+      "licenseFile": null,
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/@rolldown/binding-openharmony-arm64/-/binding-openharmony-arm64-1.2.15.tgz"
+    },
+    {
+      "name": "@rolldown/binding-win32-arm64-msvc",
+      "version": "1.2.15",
+      "license": "MIT",
+      "dev": true,
+      "licenseFile": null,
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/@rolldown/binding-win32-arm64-msvc/-/binding-win32-arm64-msvc-1.2.15.tgz"
+    },
+    {
+      "name": "@rolldown/binding-win32-x64-msvc",
+      "version": "1.2.15",
+      "license": "MIT",
+      "dev": true,
+      "licenseFile": null,
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/@rolldown/binding-win32-x64-msvc/-/binding-win32-x64-msvc-1.2.15.tgz"
+    },
+    {
+      "name": "@rolldown/pluginutils",
+      "version": "1.0.1",
+      "license": "MIT",
+      "dev": true,
+      "licenseFile": "LICENSE",
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/@rolldown/pluginutils/-/pluginutils-1.0.1.tgz"
+    },
+    {
+      "name": "@types/chai",
+      "version": "5.2.3",
+      "license": "MIT",
+      "dev": true,
+      "licenseFile": "LICENSE",
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/@types/chai/-/chai-5.2.3.tgz"
+    },
+    {
+      "name": "@types/deep-eql",
+      "version": "4.0.2",
+      "license": "MIT",
+      "dev": true,
+      "licenseFile": "LICENSE",
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/@types/deep-eql/-/deep-eql-4.0.2.tgz"
+    },
+    {
+      "name": "@types/estree",
+      "version": "1.0.9",
+      "license": "MIT",
+      "dev": true,
+      "licenseFile": "LICENSE",
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/@types/estree/-/estree-1.0.9.tgz"
+    },
+    {
+      "name": "@types/react",
+      "version": "19.3.0",
+      "license": "MIT",
+      "dev": true,
+      "licenseFile": "LICENSE",
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/@types/react/-/react-19.3.0.tgz"
+    },
+    {
+      "name": "@types/react-dom",
+      "version": "19.3.0",
+      "license": "MIT",
+      "dev": true,
+      "licenseFile": "LICENSE",
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/@types/react-dom/-/react-dom-19.3.0.tgz"
+    },
+    {
+      "name": "@typescript/typescript-aix-ppc64",
+      "version": "7.0.2",
+      "license": "Apache-2.0",
+      "dev": true,
+      "licenseFile": null,
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/@typescript/typescript-aix-ppc64/-/typescript-aix-ppc64-7.0.2.tgz"
+    },
+    {
+      "name": "@typescript/typescript-darwin-arm64",
+      "version": "7.0.2",
+      "license": "Apache-2.0",
+      "dev": true,
+      "licenseFile": null,
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/@typescript/typescript-darwin-arm64/-/typescript-darwin-arm64-7.0.2.tgz"
+    },
+    {
+      "name": "@typescript/typescript-darwin-x64",
+      "version": "7.0.2",
+      "license": "Apache-2.0",
+      "dev": true,
+      "licenseFile": null,
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/@typescript/typescript-darwin-x64/-/typescript-darwin-x64-7.0.2.tgz"
+    },
+    {
+      "name": "@typescript/typescript-freebsd-arm64",
+      "version": "7.0.2",
+      "license": "Apache-2.0",
+      "dev": true,
+      "licenseFile": null,
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/@typescript/typescript-freebsd-arm64/-/typescript-freebsd-arm64-7.0.2.tgz"
+    },
+    {
+      "name": "@typescript/typescript-freebsd-x64",
+      "version": "7.0.2",
+      "license": "Apache-2.0",
+      "dev": true,
+      "licenseFile": null,
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/@typescript/typescript-freebsd-x64/-/typescript-freebsd-x64-7.0.2.tgz"
+    },
+    {
+      "name": "@typescript/typescript-linux-arm",
+      "version": "7.0.2",
+      "license": "Apache-2.0",
+      "dev": true,
+      "licenseFile": null,
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/@typescript/typescript-linux-arm/-/typescript-linux-arm-7.0.2.tgz"
+    },
+    {
+      "name": "@typescript/typescript-linux-arm64",
+      "version": "7.0.2",
+      "license": "Apache-2.0",
+      "dev": true,
+      "licenseFile": null,
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/@typescript/typescript-linux-arm64/-/typescript-linux-arm64-7.0.2.tgz"
+    },
+    {
+      "name": "@typescript/typescript-linux-loong64",
+      "version": "7.0.2",
+      "license": "Apache-2.0",
+      "dev": true,
+      "licenseFile": null,
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/@typescript/typescript-linux-loong64/-/typescript-linux-loong64-7.0.2.tgz"
+    },
+    {
+      "name": "@typescript/typescript-linux-mips64el",
+      "version": "7.0.2",
+      "license": "Apache-2.0",
+      "dev": true,
+      "licenseFile": null,
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/@typescript/typescript-linux-mips64el/-/typescript-linux-mips64el-7.0.2.tgz"
+    },
+    {
+      "name": "@typescript/typescript-linux-ppc64",
+      "version": "7.0.2",
+      "license": "Apache-2.0",
+      "dev": true,
+      "licenseFile": null,
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/@typescript/typescript-linux-ppc64/-/typescript-linux-ppc64-7.0.2.tgz"
+    },
+    {
+      "name": "@typescript/typescript-linux-riscv64",
+      "version": "7.0.2",
+      "license": "Apache-2.0",
+      "dev": true,
+      "licenseFile": null,
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/@typescript/typescript-linux-riscv64/-/typescript-linux-riscv64-7.0.2.tgz"
+    },
+    {
+      "name": "@typescript/typescript-linux-s390x",
+      "version": "7.0.2",
+      "license": "Apache-2.0",
+      "dev": true,
+      "licenseFile": null,
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/@typescript/typescript-linux-s390x/-/typescript-linux-s390x-7.0.2.tgz"
+    },
+    {
+      "name": "@typescript/typescript-linux-x64",
+      "version": "7.0.2",
+      "license": "Apache-2.0",
+      "dev": true,
+      "licenseFile": "LICENSE",
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/@typescript/typescript-linux-x64/-/typescript-linux-x64-7.0.2.tgz"
+    },
+    {
+      "name": "@typescript/typescript-netbsd-arm64",
+      "version": "7.0.2",
+      "license": "Apache-2.0",
+      "dev": true,
+      "licenseFile": null,
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/@typescript/typescript-netbsd-arm64/-/typescript-netbsd-arm64-7.0.2.tgz"
+    },
+    {
+      "name": "@typescript/typescript-netbsd-x64",
+      "version": "7.0.2",
+      "license": "Apache-2.0",
+      "dev": true,
+      "licenseFile": null,
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/@typescript/typescript-netbsd-x64/-/typescript-netbsd-x64-7.0.2.tgz"
+    },
+    {
+      "name": "@typescript/typescript-openbsd-arm64",
+      "version": "7.0.2",
+      "license": "Apache-2.0",
+      "dev": true,
+      "licenseFile": null,
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/@typescript/typescript-openbsd-arm64/-/typescript-openbsd-arm64-7.0.2.tgz"
+    },
+    {
+      "name": "@typescript/typescript-openbsd-x64",
+      "version": "7.0.2",
+      "license": "Apache-2.0",
+      "dev": true,
+      "licenseFile": null,
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/@typescript/typescript-openbsd-x64/-/typescript-openbsd-x64-7.0.2.tgz"
+    },
+    {
+      "name": "@typescript/typescript-sunos-x64",
+      "version": "7.0.2",
+      "license": "Apache-2.0",
+      "dev": true,
+      "licenseFile": null,
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/@typescript/typescript-sunos-x64/-/typescript-sunos-x64-7.0.2.tgz"
+    },
+    {
+      "name": "@typescript/typescript-win32-arm64",
+      "version": "7.0.2",
+      "license": "Apache-2.0",
+      "dev": true,
+      "licenseFile": null,
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/@typescript/typescript-win32-arm64/-/typescript-win32-arm64-7.0.2.tgz"
+    },
+    {
+      "name": "@typescript/typescript-win32-x64",
+      "version": "7.0.2",
+      "license": "Apache-2.0",
+      "dev": true,
+      "licenseFile": null,
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/@typescript/typescript-win32-x64/-/typescript-win32-x64-7.0.2.tgz"
+    },
+    {
+      "name": "@vitejs/plugin-react",
+      "version": "6.1.2",
+      "license": "MIT",
+      "dev": true,
+      "licenseFile": "LICENSE",
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/@vitejs/plugin-react/-/plugin-react-6.1.2.tgz"
+    },
+    {
+      "name": "@vitest/mocker",
+      "version": "5.0.5",
+      "license": "MIT",
+      "dev": true,
+      "licenseFile": "LICENSE",
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/@vitest/mocker/-/mocker-5.0.5.tgz"
+    },
+    {
+      "name": "@vitest/spy",
+      "version": "5.0.5",
+      "license": "MIT",
+      "dev": true,
+      "licenseFile": "LICENSE",
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/@vitest/spy/-/spy-5.0.5.tgz"
+    },
+    {
+      "name": "assertion-error",
+      "version": "2.0.1",
+      "license": "MIT",
+      "dev": true,
+      "licenseFile": "LICENSE",
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/assertion-error/-/assertion-error-2.0.1.tgz"
+    },
+    {
+      "name": "chai",
+      "version": "6.3.0",
+      "license": "MIT",
+      "dev": true,
+      "licenseFile": "LICENSE",
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/chai/-/chai-6.3.0.tgz"
+    },
+    {
+      "name": "csstype",
+      "version": "3.2.3",
+      "license": "MIT",
+      "dev": true,
+      "licenseFile": "LICENSE",
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/csstype/-/csstype-3.2.3.tgz"
+    },
+    {
+      "name": "detect-libc",
+      "version": "2.1.2",
+      "license": "Apache-2.0",
+      "dev": true,
+      "licenseFile": "LICENSE",
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/detect-libc/-/detect-libc-2.1.2.tgz"
+    },
+    {
+      "name": "es-module-lexer",
+      "version": "2.3.2",
+      "license": "MIT",
+      "dev": true,
+      "licenseFile": "LICENSE",
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/es-module-lexer/-/es-module-lexer-2.3.2.tgz"
+    },
+    {
+      "name": "estree-walker",
+      "version": "3.0.3",
+      "license": "MIT",
+      "dev": true,
+      "licenseFile": "LICENSE",
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/estree-walker/-/estree-walker-3.0.3.tgz"
+    },
+    {
+      "name": "expect-type",
+      "version": "1.4.0",
+      "license": "Apache-2.0",
+      "dev": true,
+      "licenseFile": "LICENSE",
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/expect-type/-/expect-type-1.4.0.tgz"
+    },
+    {
+      "name": "fdir",
+      "version": "6.5.0",
+      "license": "MIT",
+      "dev": true,
+      "licenseFile": "LICENSE",
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/fdir/-/fdir-6.5.0.tgz"
+    },
+    {
+      "name": "fsevents",
+      "version": "2.3.3",
+      "license": "MIT",
+      "dev": true,
+      "licenseFile": null,
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/fsevents/-/fsevents-2.3.3.tgz"
+    },
+    {
+      "name": "lightningcss",
+      "version": "1.33.0",
+      "license": "MPL-2.0",
+      "dev": true,
+      "licenseFile": "LICENSE",
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/lightningcss/-/lightningcss-1.33.0.tgz"
+    },
+    {
+      "name": "lightningcss-android-arm64",
+      "version": "1.33.0",
+      "license": "MPL-2.0",
+      "dev": true,
+      "licenseFile": null,
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/lightningcss-android-arm64/-/lightningcss-android-arm64-1.33.0.tgz"
+    },
+    {
+      "name": "lightningcss-darwin-arm64",
+      "version": "1.33.0",
+      "license": "MPL-2.0",
+      "dev": true,
+      "licenseFile": null,
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/lightningcss-darwin-arm64/-/lightningcss-darwin-arm64-1.33.0.tgz"
+    },
+    {
+      "name": "lightningcss-darwin-x64",
+      "version": "1.33.0",
+      "license": "MPL-2.0",
+      "dev": true,
+      "licenseFile": null,
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/lightningcss-darwin-x64/-/lightningcss-darwin-x64-1.33.0.tgz"
+    },
+    {
+      "name": "lightningcss-freebsd-x64",
+      "version": "1.33.0",
+      "license": "MPL-2.0",
+      "dev": true,
+      "licenseFile": null,
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/lightningcss-freebsd-x64/-/lightningcss-freebsd-x64-1.33.0.tgz"
+    },
+    {
+      "name": "lightningcss-linux-arm-gnueabihf",
+      "version": "1.33.0",
+      "license": "MPL-2.0",
+      "dev": true,
+      "licenseFile": null,
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/lightningcss-linux-arm-gnueabihf/-/lightningcss-linux-arm-gnueabihf-1.33.0.tgz"
+    },
+    {
+      "name": "lightningcss-linux-arm64-gnu",
+      "version": "1.33.0",
+      "license": "MPL-2.0",
+      "dev": true,
+      "licenseFile": null,
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/lightningcss-linux-arm64-gnu/-/lightningcss-linux-arm64-gnu-1.33.0.tgz"
+    },
+    {
+      "name": "lightningcss-linux-arm64-musl",
+      "version": "1.33.0",
+      "license": "MPL-2.0",
+      "dev": true,
+      "licenseFile": null,
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/lightningcss-linux-arm64-musl/-/lightningcss-linux-arm64-musl-1.33.0.tgz"
+    },
+    {
+      "name": "lightningcss-linux-x64-gnu",
+      "version": "1.33.0",
+      "license": "MPL-2.0",
+      "dev": true,
+      "licenseFile": "LICENSE",
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/lightningcss-linux-x64-gnu/-/lightningcss-linux-x64-gnu-1.33.0.tgz"
+    },
+    {
+      "name": "lightningcss-linux-x64-musl",
+      "version": "1.33.0",
+      "license": "MPL-2.0",
+      "dev": true,
+      "licenseFile": "LICENSE",
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/lightningcss-linux-x64-musl/-/lightningcss-linux-x64-musl-1.33.0.tgz"
+    },
+    {
+      "name": "lightningcss-win32-arm64-msvc",
+      "version": "1.33.0",
+      "license": "MPL-2.0",
+      "dev": true,
+      "licenseFile": null,
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/lightningcss-win32-arm64-msvc/-/lightningcss-win32-arm64-msvc-1.33.0.tgz"
+    },
+    {
+      "name": "lightningcss-win32-x64-msvc",
+      "version": "1.33.0",
+      "license": "MPL-2.0",
+      "dev": true,
+      "licenseFile": null,
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/lightningcss-win32-x64-msvc/-/lightningcss-win32-x64-msvc-1.33.0.tgz"
+    },
+    {
+      "name": "magic-string",
+      "version": "1.4.4",
+      "license": "MIT",
+      "dev": true,
+      "licenseFile": "LICENSE",
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/magic-string/-/magic-string-1.4.4.tgz"
+    },
+    {
+      "name": "nanoid",
+      "version": "3.3.20",
+      "license": "MIT",
+      "dev": true,
+      "licenseFile": "LICENSE",
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/nanoid/-/nanoid-3.3.20.tgz"
+    },
+    {
+      "name": "obug",
+      "version": "3.0.0",
+      "license": "MIT",
+      "dev": true,
+      "licenseFile": "LICENSE",
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/obug/-/obug-3.0.0.tgz"
+    },
+    {
+      "name": "picocolors",
+      "version": "1.1.1",
+      "license": "ISC",
+      "dev": true,
+      "licenseFile": "LICENSE",
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/picocolors/-/picocolors-1.1.1.tgz"
+    },
+    {
+      "name": "picomatch",
+      "version": "4.0.7",
+      "license": "MIT",
+      "dev": true,
+      "licenseFile": "LICENSE",
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/picomatch/-/picomatch-4.0.7.tgz"
+    },
+    {
+      "name": "postcss",
+      "version": "8.5.31",
+      "license": "MIT",
+      "dev": true,
+      "licenseFile": "LICENSE",
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/postcss/-/postcss-8.5.31.tgz"
+    },
+    {
+      "name": "rolldown",
+      "version": "1.2.15",
+      "license": "MIT",
+      "dev": true,
+      "licenseFile": "LICENSE",
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/rolldown/-/rolldown-1.2.15.tgz"
+    },
+    {
+      "name": "source-map-js",
+      "version": "1.2.2",
+      "license": "BSD-3-Clause",
+      "dev": true,
+      "licenseFile": "LICENSE",
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/source-map-js/-/source-map-js-1.2.2.tgz"
+    },
+    {
+      "name": "std-env",
+      "version": "4.3.0",
+      "license": "MIT",
+      "dev": true,
+      "licenseFile": "LICENCE",
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/std-env/-/std-env-4.3.0.tgz"
+    },
+    {
+      "name": "tinybench",
+      "version": "6.2.2",
+      "license": "MIT",
+      "dev": true,
+      "licenseFile": "LICENSE",
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/tinybench/-/tinybench-6.2.2.tgz"
+    },
+    {
+      "name": "tinyexec",
+      "version": "1.3.1",
+      "license": "MIT",
+      "dev": true,
+      "licenseFile": "LICENSE",
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/tinyexec/-/tinyexec-1.3.1.tgz"
+    },
+    {
+      "name": "tinyglobby",
+      "version": "0.2.17",
+      "license": "MIT",
+      "dev": true,
+      "licenseFile": "LICENSE",
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/tinyglobby/-/tinyglobby-0.2.17.tgz"
+    },
+    {
+      "name": "typescript",
+      "version": "7.0.2",
+      "license": "Apache-2.0",
+      "dev": true,
+      "licenseFile": "LICENSE",
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/typescript/-/typescript-7.0.2.tgz"
+    },
+    {
+      "name": "vite",
+      "version": "8.3.5",
+      "license": "MIT",
+      "dev": true,
+      "licenseFile": "LICENSE.md",
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/vite/-/vite-8.3.5.tgz"
+    },
+    {
+      "name": "vitest",
+      "version": "5.0.5",
+      "license": "MIT",
+      "dev": true,
+      "licenseFile": "LICENSE.md",
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/vitest/-/vitest-5.0.5.tgz"
+    },
+    {
+      "name": "why-is-node-running",
+      "version": "3.2.1",
+      "license": "MIT",
+      "dev": true,
+      "licenseFile": "LICENSE",
+      "repository": null,
+      "resolved": "https://registry.npmjs.org/why-is-node-running/-/why-is-node-running-3.2.1.tgz"
+    }
+  ],
+  "violations": [],
+  "warnings": [
+    "@rolldown/binding-android-arm-eabi@1.2.15 (dev-only, not distributed) ships no licence file; its declared licence is MIT.",
+    "@rolldown/binding-android-arm64@1.2.15 (dev-only, not distributed) ships no licence file; its declared licence is MIT.",
+    "@rolldown/binding-darwin-arm64@1.2.15 (dev-only, not distributed) ships no licence file; its declared licence is MIT.",
+    "@rolldown/binding-darwin-x64@1.2.15 (dev-only, not distributed) ships no licence file; its declared licence is MIT.",
+    "@rolldown/binding-freebsd-x64@1.2.15 (dev-only, not distributed) ships no licence file; its declared licence is MIT.",
+    "@rolldown/binding-linux-arm-gnueabihf@1.2.15 (dev-only, not distributed) ships no licence file; its declared licence is MIT.",
+    "@rolldown/binding-linux-arm64-gnu@1.2.15 (dev-only, not distributed) ships no licence file; its declared licence is MIT.",
+    "@rolldown/binding-linux-arm64-musl@1.2.15 (dev-only, not distributed) ships no licence file; its declared licence is MIT.",
+    "@rolldown/binding-linux-ppc64-gnu@1.2.15 (dev-only, not distributed) ships no licence file; its declared licence is MIT.",
+    "@rolldown/binding-linux-s390x-gnu@1.2.15 (dev-only, not distributed) ships no licence file; its declared licence is MIT.",
+    "@rolldown/binding-linux-x64-gnu@1.2.15 (dev-only, not distributed) ships no licence file; its declared licence is MIT.",
+    "@rolldown/binding-linux-x64-musl@1.2.15 (dev-only, not distributed) ships no licence file; its declared licence is MIT.",
+    "@rolldown/binding-openharmony-arm64@1.2.15 (dev-only, not distributed) ships no licence file; its declared licence is MIT.",
+    "@rolldown/binding-win32-arm64-msvc@1.2.15 (dev-only, not distributed) ships no licence file; its declared licence is MIT.",
+    "@rolldown/binding-win32-x64-msvc@1.2.15 (dev-only, not distributed) ships no licence file; its declared licence is MIT.",
+    "@typescript/typescript-aix-ppc64@7.0.2 (dev-only, not distributed) ships no licence file; its declared licence is Apache-2.0.",
+    "@typescript/typescript-darwin-arm64@7.0.2 (dev-only, not distributed) ships no licence file; its declared licence is Apache-2.0.",
+    "@typescript/typescript-darwin-x64@7.0.2 (dev-only, not distributed) ships no licence file; its declared licence is Apache-2.0.",
+    "@typescript/typescript-freebsd-arm64@7.0.2 (dev-only, not distributed) ships no licence file; its declared licence is Apache-2.0.",
+    "@typescript/typescript-freebsd-x64@7.0.2 (dev-only, not distributed) ships no licence file; its declared licence is Apache-2.0.",
+    "@typescript/typescript-linux-arm@7.0.2 (dev-only, not distributed) ships no licence file; its declared licence is Apache-2.0.",
+    "@typescript/typescript-linux-arm64@7.0.2 (dev-only, not distributed) ships no licence file; its declared licence is Apache-2.0.",
+    "@typescript/typescript-linux-loong64@7.0.2 (dev-only, not distributed) ships no licence file; its declared licence is Apache-2.0.",
+    "@typescript/typescript-linux-mips64el@7.0.2 (dev-only, not distributed) ships no licence file; its declared licence is Apache-2.0.",
+    "@typescript/typescript-linux-ppc64@7.0.2 (dev-only, not distributed) ships no licence file; its declared licence is Apache-2.0.",
+    "@typescript/typescript-linux-riscv64@7.0.2 (dev-only, not distributed) ships no licence file; its declared licence is Apache-2.0.",
+    "@typescript/typescript-linux-s390x@7.0.2 (dev-only, not distributed) ships no licence file; its declared licence is Apache-2.0.",
+    "@typescript/typescript-netbsd-arm64@7.0.2 (dev-only, not distributed) ships no licence file; its declared licence is Apache-2.0.",
+    "@typescript/typescript-netbsd-x64@7.0.2 (dev-only, not distributed) ships no licence file; its declared licence is Apache-2.0.",
+    "@typescript/typescript-openbsd-arm64@7.0.2 (dev-only, not distributed) ships no licence file; its declared licence is Apache-2.0.",
+    "@typescript/typescript-openbsd-x64@7.0.2 (dev-only, not distributed) ships no licence file; its declared licence is Apache-2.0.",
+    "@typescript/typescript-sunos-x64@7.0.2 (dev-only, not distributed) ships no licence file; its declared licence is Apache-2.0.",
+    "@typescript/typescript-win32-arm64@7.0.2 (dev-only, not distributed) ships no licence file; its declared licence is Apache-2.0.",
+    "@typescript/typescript-win32-x64@7.0.2 (dev-only, not distributed) ships no licence file; its declared licence is Apache-2.0.",
+    "astronomy-engine@2.1.19 ships no licence file in its npm tarball; the full text is reproduced in THIRD-PARTY-NOTICES.md.",
+    "fsevents@2.3.3 (dev-only, not distributed) ships no licence file; its declared licence is MIT.",
+    "lightningcss-android-arm64@1.33.0 (dev-only, not distributed) ships no licence file; its declared licence is MPL-2.0.",
+    "lightningcss-darwin-arm64@1.33.0 (dev-only, not distributed) ships no licence file; its declared licence is MPL-2.0.",
+    "lightningcss-darwin-x64@1.33.0 (dev-only, not distributed) ships no licence file; its declared licence is MPL-2.0.",
+    "lightningcss-freebsd-x64@1.33.0 (dev-only, not distributed) ships no licence file; its declared licence is MPL-2.0.",
+    "lightningcss-linux-arm-gnueabihf@1.33.0 (dev-only, not distributed) ships no licence file; its declared licence is MPL-2.0.",
+    "lightningcss-linux-arm64-gnu@1.33.0 (dev-only, not distributed) ships no licence file; its declared licence is MPL-2.0.",
+    "lightningcss-linux-arm64-musl@1.33.0 (dev-only, not distributed) ships no licence file; its declared licence is MPL-2.0.",
+    "lightningcss-win32-arm64-msvc@1.33.0 (dev-only, not distributed) ships no licence file; its declared licence is MPL-2.0.",
+    "lightningcss-win32-x64-msvc@1.33.0 (dev-only, not distributed) ships no licence file; its declared licence is MPL-2.0."
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "name": "astrosutra",
+  "private": true,
+  "version": "1.0.0",
+  "description": "AstroSutra - an original, privacy-first Vedic astrology companion with real astronomical calculations.",
+  "type": "module",
+  "license": "MIT",
+  "author": "AstroSutra contributors",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc -b --pretty false",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "license:audit": "node scripts/license-audit.mjs"
+  },
+  "dependencies": {
+    "@fontsource/cormorant-garamond": "^5.3.0",
+    "@fontsource/manrope": "^5.3.0",
+    "@fontsource/noto-sans-symbols-2": "^5.3.0",
+    "astronomy-engine": "^2.1.19",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "react-router-dom": "^7.18.4"
+  },
+  "devDependencies": {
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.2",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.5",
+    "vitest": "^5.0.5"
+  }
+}
