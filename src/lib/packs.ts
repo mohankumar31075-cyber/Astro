@@ -26,7 +26,7 @@ export const PACKS: Pack[] = [
   {
     id: 'questions',
     name: 'Question pack',
-    tagline: 'Keep asking Vaani',
+    tagline: 'Keep asking Sutra',
     includes: [
       '50 additional chart-based questions',
       'Runs until used — the allowance does not expire',

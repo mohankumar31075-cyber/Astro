@@ -21,7 +21,7 @@ from any commercial astrology app is used. See
 | --- | --- |
 | **Kundli / birth chart** | Sidereal positions for the nine grahas plus the ascendant, whole-sign houses, nakshatra and pada, dignity, Navamsa, and a hand-drawn North- or South-Indian chart wheel. |
 | **Daily horoscope** | Twelve sign readings that use the real Moon's sign and house, the current tithi, and the day's panchang — not a static paragraph per sign. |
-| **Ask Vaani** | A deterministic reading engine that answers questions from *your* chart: dasha, house lords, occupants, transits and Sade Sati. Refuses medical, legal and crisis questions and hands off to real help. |
+| **Ask Sutra** | A deterministic reading engine that answers questions from *your* chart: dasha, house lords, occupants, transits and Sade Sati. Refuses medical, legal and crisis questions and hands off to real help. |
 | **Compatibility** | Ashtakoot Guna Milan — Varna, Vashya, Tara, Yoni, Graha Maitri, Gana, Bhakoot, Nadi — out of 36, plus Mangal dosha, the seventh lord and Venus. |
 | **Reports** | Career, love, health, money and life guidance, each assembled from the chart's actual factors and printable. |
 | **Panchang** | Tithi, nakshatra, yoga, karana, weekday, sunrise/sunset, moonrise/moonset, Rahu kaal, Yamaganda, Gulika and Abhijit muhurta for any date and place. |
@@ -40,7 +40,7 @@ from any commercial astrology app is used. See
 | `/horoscope`, `/horoscope/:slug` | Daily horoscope for any sign |
 | `/packs` | Free tier, packs, and the current entitlements |
 | `/match` | Compatibility between two saved profiles |
-| `/ask` | Ask Vaani |
+| `/ask` | Ask Sutra |
 | `/panchang` | Panchang and muhurta for a date |
 | `/reports`, `/reports/:slug` | Reports index and individual reports |
 | `/family` | Saved profiles |
@@ -92,7 +92,7 @@ Conventions, the validation checks and the stated limitations are all spelled
 out in-app at `/how-it-works`, and the engine's assumptions are in the module
 headers.
 
-**What the engine is not.** Vaani is a deterministic rules engine — a very
+**What the engine is not.** Sutra is a deterministic rules engine — a very
 careful one — not a language model and not a psychic. It reads the chart it is
 given and says so. It refuses questions about diagnosis, legal outcomes and
 self-harm, and routes crisis messages to Tele-MANAS (14416) and AASRA
@@ -119,7 +119,7 @@ enforced by the UI and by `src/lib/packs.ts`:
 | --- | --- | --- |
 | Birth chart, dasha, panchang, horoscope | Included | Included |
 | Saved profiles | 1 | 8 (family pack) |
-| Vaani questions | 3 per day | +50, never expiring (question pack) |
+| Sutra questions | 3 per day | +50, never expiring (question pack) |
 | Reports | First 2 sections | Every section (report pack) |
 | Compatibility, export, erase | Included | Included |
 
@@ -139,7 +139,7 @@ left out of the open-source build, and every upgrade screen says so.
 | --- | --- |
 | `src/lib/astro.test.ts` (15) | Time zones, ayanamsa, ascendant, positions, navamsa, house assignment |
 | `src/lib/vedic.test.ts` (24) | Dasha tree, panchang against published values, yogas, Ashtakoot, transits, Sade Sati |
-| `src/lib/content.test.ts` (30) | City search, daily horoscope, Vaani intent routing and safety refusals, compatibility invariants |
+| `src/lib/content.test.ts` (30) | City search, daily horoscope, Sutra intent routing and safety refusals, compatibility invariants |
 | `src/lib/packs.test.ts` (22) | Free-tier limits, daily rollover, question spending, pack activation, entitlements |
 | `src/app.smoke.test.tsx` (25) | Server-renders every route and asserts the expected content appears |
 
@@ -165,7 +165,7 @@ src/
     yogas.ts      classical yoga detection
     matching.ts   Ashtakoot Guna Milan
     horoscope.ts  sign profiles and the daily reading engine
-    vaani.ts      question classification and chart-based answers
+    sutra.ts      question classification and chart-based answers
     reports.ts    report narratives
     glossary.ts   Astropedia entries
     packs.ts      free-tier limits and pack entitlements
@@ -218,9 +218,11 @@ same category as Melooha. It is not a fork, a copy, or a reskin.
   the product *does*, which is an idea. How it is expressed here is original.
 - All prose was written for this project. All icons are hand-authored SVG paths.
   The visual design is original.
-- The name, logo and voice are original. AstroSutra is **not affiliated with,
-  endorsed by, or connected to** Melooha, Astroverse Technologies Pvt. Ltd., or
-  any other astrology product.
+- The name, logo and voice are original. The in-app guide is called **Sutra**,
+  after this project's own name — deliberately not the name any other product
+  gives its assistant. AstroSutra is **not affiliated with, endorsed by, or
+  connected to** Melooha, Astroverse Technologies Pvt. Ltd., or any other
+  astrology product.
 - Traditional Jyotisha terms and classical rules are public domain; the modern
   explanations are new.
 

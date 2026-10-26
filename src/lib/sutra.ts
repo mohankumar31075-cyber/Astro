@@ -1,7 +1,7 @@
 /**
- * Vaani — the in-app guide.
+ * Sutra — the in-app guide.
  *
- * Vaani is a transparent, offline rules engine, not a language model. It reads
+ * Sutra is a transparent, offline rules engine, not a language model. It reads
  * the computed chart (dasha periods, house lords, occupants, dignities and
  * transits), selects the factors relevant to your question and assembles an
  * answer from original, hand-written interpretation text.
@@ -9,7 +9,7 @@
  * Two consequences worth knowing:
  *  • No question ever leaves your device. There is no API call.
  *  • Answers are limited to combinations AstroSutra understands. When a
- *    question falls outside that, Vaani says so rather than inventing.
+ *    question falls outside that, Sutra says so rather than inventing.
  */
 import { HOUSE_MEANINGS, NAKSHATRAS, PLANETS, PLANET_ORDER, RASHIS, type PlanetKey } from './constants';
 import { houseLordOf, planetsInHouse, type BirthChart } from './astro';
@@ -29,7 +29,7 @@ export type Intent =
   | 'timing'
   | 'general';
 
-export interface VaaniAnswer {
+export interface SutraAnswer {
   mode: 'chart' | 'care';
   intent: Intent;
   title: string;
@@ -226,7 +226,7 @@ const ORD = (n: number) => {
   return `${n}${suffix}`;
 };
 
-function crisisAnswer(): VaaniAnswer {
+function crisisAnswer(): SutraAnswer {
   return {
     mode: 'care',
     intent: 'general',
@@ -252,11 +252,11 @@ function crisisAnswer(): VaaniAnswer {
   };
 }
 
-function careAnswer(title: string, body: string, followUps: string[] = []): VaaniAnswer {
+function careAnswer(title: string, body: string, followUps: string[] = []): SutraAnswer {
   return { mode: 'care', intent: 'general', title, sections: [{ title: 'A careful answer', body }], factors: [], followUps };
 }
 
-export function askVaani(question: string, chart: BirthChart, at: Date): VaaniAnswer {
+export function askSutra(question: string, chart: BirthChart, at: Date): SutraAnswer {
   const q = question.toLowerCase();
   if (CRISIS_WORDS.some((w) => q.includes(w))) return crisisAnswer();
   if (MEDICAL_WORDS.some((w) => q.includes(w))) {

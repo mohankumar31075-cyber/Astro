@@ -19,7 +19,7 @@ const NAV: Array<{ to: string; label: string; icon: typeof IconDashboard; group:
   { to: '/dashboard', label: 'Dashboard', icon: IconDashboard, group: 'Your sky' },
   { to: '/chart', label: 'Birth chart', icon: IconCompass, group: 'Your sky' },
   { to: '/horoscope', label: 'Daily reading', icon: IconMoonStars, group: 'Your sky' },
-  { to: '/ask', label: 'Ask Vaani', icon: IconSparkles, group: 'Go deeper' },
+  { to: '/ask', label: 'Ask Sutra', icon: IconSparkles, group: 'Go deeper' },
   { to: '/match', label: 'Compatibility', icon: IconHeart, group: 'Go deeper' },
   { to: '/reports', label: 'Reports', icon: IconDocument, group: 'Go deeper' },
   { to: '/panchang', label: 'Panchang', icon: IconCalendar, group: 'The sky today' },
@@ -33,7 +33,7 @@ const TITLES: Record<string, string> = {
   '/dashboard': 'Today, read from your chart',
   '/chart': 'Your birth chart',
   '/horoscope': 'Daily reading',
-  '/ask': 'Ask Vaani',
+  '/ask': 'Ask Sutra',
   '/match': 'Compatibility',
   '/reports': 'Your reports',
   '/panchang': 'Panchang & muhurta',
@@ -190,7 +190,7 @@ export function Layout() {
         {[
           { to: '/dashboard', label: 'Home', icon: IconDashboard },
           { to: '/chart', label: 'Chart', icon: IconCompass },
-          { to: '/ask', label: 'Vaani', icon: IconSparkles },
+          { to: '/ask', label: 'Sutra', icon: IconSparkles },
           { to: '/horoscope', label: 'Today', icon: IconMoonStars },
           { to: '/match', label: 'Match', icon: IconHeart },
         ].map((item) => (

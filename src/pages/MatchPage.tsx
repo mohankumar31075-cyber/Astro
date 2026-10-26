@@ -229,7 +229,7 @@ export default function MatchPage() {
                 </p>
               </div>
               <Link className="btn btn--ghost btn--small" to="/ask">
-                <IconSparkles /> Ask Vaani about this
+                <IconSparkles /> Ask Sutra about this
               </Link>
             </div>
             <div className="row" style={{ marginTop: 14 }}>

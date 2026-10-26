@@ -158,7 +158,7 @@ export default function HoroscopePage() {
                 <Badge tone="violet">{NAKSHATRAS[chart.birthNakshatra].name}</Badge>
               </div>
               <Link className="btn btn--quiet btn--small" to="/ask" style={{ marginTop: 10 }}>
-                Ask Vaani about today <IconArrowRight />
+                Ask Sutra about today <IconArrowRight />
               </Link>
             </Card>
           ) : null}

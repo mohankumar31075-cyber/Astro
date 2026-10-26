@@ -64,7 +64,7 @@ export default function Dashboard() {
               <IconMoonStars /> Today
             </Link>
             <Link className="btn btn--small" to="/ask">
-              <IconSparkles /> Ask Vaani
+              <IconSparkles /> Ask Sutra
             </Link>
           </>
         }

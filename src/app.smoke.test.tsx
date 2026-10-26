@@ -34,7 +34,7 @@ const ROUTES: Array<[string, string[]]> = [
   ['/chart', ['Your birth chart']],
   ['/horoscope', ['Why this reading']],
   ['/horoscope/leo', ['Leo']],
-  ['/ask', ['Ask Vaani']],
+  ['/ask', ['Ask Sutra']],
   ['/match', ['Compatibility']],
   ['/reports', ['Your reports']],
   ['/reports/career', ['The field you are built for']],

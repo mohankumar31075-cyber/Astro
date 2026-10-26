@@ -87,7 +87,7 @@ const FEATURES = [
   {
     icon: IconSparkles,
     title: 'A guide that reads your chart',
-    body: 'Vaani answers from your own dashas, house lords and transits — in plain language, with the factors it used listed underneath. No question ever leaves your device.',
+    body: 'Sutra answers from your own dashas, house lords and transits — in plain language, with the factors it used listed underneath. No question ever leaves your device.',
   },
   {
     icon: IconHeart,

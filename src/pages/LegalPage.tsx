@@ -174,7 +174,7 @@ const DOCS: LegalDoc[] = [
         heading: 'What was deliberately not done',
         paragraphs: [
           'No Melooha code, artwork, copy, database or API has been accessed, decompiled or reproduced. Melooha is a separate commercial product by Astroverse Technologies Pvt. Ltd. AstroSutra is an independent implementation in the same product category, built from public-domain Jyotisha concepts and openly documented astronomy.',
-          'Names of zodiac signs, nakshatras, dashas and classical yogas are traditional terminology in the public domain. Their modern explanations here are newly written.',
+          'Names of zodiac signs, nakshatras, dashas and classical yogas are traditional terminology in the public domain. Their modern explanations here are newly written, and the in-app guide is named Sutra after this project rather than borrowing another product\'s assistant name.',
         ],
       },
       {

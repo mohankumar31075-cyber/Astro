@@ -4,7 +4,7 @@ import { Badge, Callout, Card, CardTitle, PageHeader } from '../components/ui';
 import { IconArrowRight, IconLock, IconSparkles } from '../components/Icons';
 import { NAKSHATRAS, PLANETS, RASHIS } from '../lib/constants';
 import { recordQuestion, useActiveChart, useActiveProfile, useAppData } from '../lib/store';
-import { askVaani, SUGGESTED_QUESTIONS, type VaaniAnswer } from '../lib/vaani';
+import { askSutra, SUGGESTED_QUESTIONS, type SutraAnswer } from '../lib/sutra';
 import { dashaTreeAt, formatPeriodDate } from '../lib/dasha';
 import { questionsLeft, todayKey } from '../lib/packs';
 
@@ -12,7 +12,7 @@ interface Message {
   id: string;
   role: 'user' | 'assistant';
   text?: string;
-  answer?: VaaniAnswer;
+  answer?: SutraAnswer;
 }
 
 export default function AskPage() {
@@ -32,7 +32,7 @@ export default function AskPage() {
   const send = (question: string) => {
     const clean = question.trim();
     if (!clean || left <= 0) return;
-    const answer = askVaani(clean, chart, new Date());
+    const answer = askSutra(clean, chart, new Date());
     recordQuestion();
     setMessages((current) => [
       ...current,
@@ -47,8 +47,8 @@ export default function AskPage() {
     <div className="fade-in">
       <PageHeader
         eyebrow="Chart-aware guide · offline"
-        title="Ask Vaani"
-        description="Vaani reads your dashas, house lords and transits and answers with the factors it used. It is a transparent rules engine, not a language model — and nothing leaves your browser."
+        title="Ask Sutra"
+        description="Sutra reads your dashas, house lords and transits and answers with the factors it used. It is a transparent rules engine, not a language model — and nothing leaves your browser."
         actions={
           messages.length > 0 ? (
             <button type="button" className="btn btn--ghost btn--small" onClick={() => setMessages([])}>
@@ -172,7 +172,7 @@ export default function AskPage() {
                 </form>
                 <p className="tiny dim">
                   {left} question{left === 1 ? '' : 's'} left today.{' '}
-                  <Link to="/packs" className="muted">Get a pack</Link> · Vaani describes patterns and timing in your
+                  <Link to="/packs" className="muted">Get a pack</Link> · Sutra describes patterns and timing in your
                   chart. It does not predict events and will decline medical, legal or crisis questions.
                 </p>
               </>
@@ -195,7 +195,7 @@ export default function AskPage() {
 
         <div className="stack">
           <Card>
-            <CardTitle title="How Vaani works" eyebrow="Transparency" />
+            <CardTitle title="How Sutra works" eyebrow="Transparency" />
             <div className="stack" style={{ gap: 12 }}>
               {[
                 ['1. Your question is classified', 'Keywords route the question to one of ten life areas. Nothing is sent to a server.'],

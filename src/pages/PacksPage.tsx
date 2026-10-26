@@ -17,7 +17,7 @@ const FREE_ROWS = [
   { label: 'Birth chart and kundli', free: 'Included', pack: 'Included' },
   { label: 'Daily horoscope and panchang', free: 'All twelve signs', pack: 'All twelve signs' },
   { label: 'Saved profiles', free: `${FREE_LIMITS.profiles}`, pack: 'Up to 8' },
-  { label: 'Vaani questions', free: `${FREE_LIMITS.questionsPerDay} per day`, pack: '50 extra, never expiring' },
+  { label: 'Sutra questions', free: `${FREE_LIMITS.questionsPerDay} per day`, pack: '50 extra, never expiring' },
   { label: 'Reports', free: `${FREE_LIMITS.reportSections} sections free`, pack: 'Every section' },
   { label: 'Compatibility between saved people', free: 'Included', pack: 'Included' },
   { label: 'Export, import and erase', free: 'Always', pack: 'Always' },
@@ -36,7 +36,7 @@ export default function PacksPage() {
         description="Every reading is computed on your own device. The free tier covers the chart, the daily horoscope, the panchang and a few questions a day. Packs lift the limits — once, without a renewal date."
         actions={
           <Link className="btn btn--ghost btn--small" to="/ask">
-            <IconSparkles /> Ask Vaani
+            <IconSparkles /> Ask Sutra
           </Link>
         }
       />

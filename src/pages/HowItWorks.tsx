@@ -38,7 +38,7 @@ const PIPELINE = [
     step: '06',
     title: 'Interpretation',
     body:
-      'A deterministic rules engine selects the relevant placements, then assembles original written interpretation. Vaani is not a language model: the same chart and question always produce the same answer, and the factors used are listed.',
+      'A deterministic rules engine selects the relevant placements, then assembles original written interpretation. Sutra is not a language model: the same chart and question always produce the same answer, and the factors used are listed.',
   },
 ];
 

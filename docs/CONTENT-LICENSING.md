@@ -82,14 +82,16 @@ companion. It is not a clone of any product's code, database, design or copy.
   an idea, and ideas are not copyrightable; the specific expression of them is.
 - All prose in this repository was written for this project. Reading templates
   are assembled from original fragments by deterministic code in
-  `src/lib/horoscope.ts`, `src/lib/reports.ts` and `src/lib/vaani.ts`.
+  `src/lib/horoscope.ts`, `src/lib/reports.ts` and `src/lib/sutra.ts`.
 - The visual design — palette, type scale, layout and the SVG chart renderers in
   `src/components/Charts.tsx` — is original to this project, built from a
   CSS design system in `src/styles/app.css`. No third-party UI kit, icon pack or
   illustration was copied; every icon is a hand-written path in
   `src/components/Icons.tsx`.
 - The name **AstroSutra**, its mark and its copy voice are original and were not
-  derived from any existing product's brand.
+  derived from any existing product's brand. The in-app guide is named
+  **Sutra** (the thread that ties chart factors together) rather than adopting
+  the assistant name used by any other astrology product.
 
 The app states this in-product on **Legal → Licensing → "What was deliberately
 not done"**, so a reader never has to take it on trust from a README alone.

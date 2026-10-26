@@ -3,7 +3,7 @@ import { buildBirthChart } from './astro';
 import { CITIES, cityLabel, searchCities } from './cities';
 import { dailyHoroscope } from './horoscope';
 import { computeMatch } from './matching';
-import { askVaani, classifyQuestion, SUGGESTED_QUESTIONS } from './vaani';
+import { askSutra, classifyQuestion, SUGGESTED_QUESTIONS } from './sutra';
 
 const DELHI = { latitude: 28.6139, longitude: 77.209, timeZone: 'Asia/Kolkata', place: 'New Delhi, India' };
 
@@ -135,7 +135,7 @@ describe('daily horoscope', () => {
   });
 });
 
-describe('Vaani answers', () => {
+describe('Sutra answers', () => {
   const now = new Date('2026-05-20T12:00:00Z');
 
   it('routes every suggested question to a specific intent', () => {
@@ -159,7 +159,7 @@ describe('Vaani answers', () => {
   });
 
   it('answers a chart question from the chart', () => {
-    const answer = askVaani('Should I change jobs?', asha, now);
+    const answer = askSutra('Should I change jobs?', asha, now);
     expect(answer.mode).toBe('chart');
     expect(answer.intent).toBe('career');
     expect(answer.sections).toHaveLength(5);
@@ -172,16 +172,16 @@ describe('Vaani answers', () => {
   });
 
   it('is deterministic and specific to the chart', () => {
-    const first = askVaani('Should I change jobs?', asha, now);
-    const again = askVaani('Should I change jobs?', asha, now);
-    const other = askVaani('Should I change jobs?', rohan, now);
+    const first = askSutra('Should I change jobs?', asha, now);
+    const again = askSutra('Should I change jobs?', asha, now);
+    const other = askSutra('Should I change jobs?', rohan, now);
     expect(first.mode).toBe('chart');
     expect(again.sections[0].body).toBe(first.sections[0].body);
     expect(other.sections[0].body).not.toBe(first.sections[0].body);
   });
 
   it('has a dedicated answer for timing questions', () => {
-    const answer = askVaani('How do I work with the current Saturn transit?', asha, now);
+    const answer = askSutra('How do I work with the current Saturn transit?', asha, now);
     expect(answer.mode).toBe('chart');
     expect(answer.intent).toBe('timing');
     expect(answer.title).toBe('Timing: dasha and transits');
@@ -189,7 +189,7 @@ describe('Vaani answers', () => {
   });
 
   it('drops astrology entirely for a crisis message and gives real helplines', () => {
-    const answer = askVaani('I want to kill myself', asha, now);
+    const answer = askSutra('I want to kill myself', asha, now);
     expect(answer.mode).toBe('care');
     const text = answer.sections.map((section) => `${section.title} ${section.body}`).join(' ');
     expect(text).toContain('14416');
@@ -198,7 +198,7 @@ describe('Vaani answers', () => {
   });
 
   it('refuses to read a medical question as a diagnosis', () => {
-    const answer = askVaani('Do I have cancer?', asha, now);
+    const answer = askSutra('Do I have cancer?', asha, now);
     expect(answer.mode).toBe('care');
     expect(answer.intent).toBe('general');
     expect(answer.title).toBe('Astrology cannot diagnose');
@@ -206,7 +206,7 @@ describe('Vaani answers', () => {
   });
 
   it('refuses legal questions and redirects to a lawyer', () => {
-    const answer = askVaani('What are my chances in this court case?', asha, now);
+    const answer = askSutra('What are my chances in this court case?', asha, now);
     expect(answer.mode).toBe('care');
     expect(answer.sections[0].body.toLowerCase()).toContain('lawyer');
   });

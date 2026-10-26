@@ -300,7 +300,7 @@ export function resetPacks() {
   commit({ ...state, packs: [], usage: { ...EMPTY_USAGE } });
 }
 
-/** Call after Vaani answers a question, so the allowance is actually spent. */
+/** Call after Sutra answers a question, so the allowance is actually spent. */
 export function recordQuestion() {
   commit({ ...state, usage: spendQuestion(state.usage, todayKey()) });
 }
