@@ -8,6 +8,7 @@
 import { useSyncExternalStore } from 'react';
 import type { BirthInput } from './time';
 import { buildBirthChart, type BirthChart } from './astro';
+import { activate, EMPTY_USAGE, profileLimit, spendQuestion, todayKey, type PackId, type Usage } from './packs';
 
 export interface Profile {
   id: string;
@@ -32,6 +33,10 @@ export interface AppData {
   profiles: Profile[];
   activeId: string | null;
   settings: Settings;
+  /** Packs the reader has activated. Empty means the free tier. */
+  packs: PackId[];
+  /** Question allowance counters. */
+  usage: Usage;
 }
 
 const STORAGE_KEY = 'astrosutra.data.v1';
@@ -48,7 +53,27 @@ const emptyData = (): AppData => ({
   profiles: [],
   activeId: null,
   settings: { ...defaultSettings },
+  packs: [],
+  usage: { ...EMPTY_USAGE },
 });
+
+const PACK_IDS: PackId[] = ['questions', 'reports', 'family', 'everything'];
+
+function sanitisePacks(raw: unknown): PackId[] {
+  if (!Array.isArray(raw)) return [];
+  return [...new Set(raw.filter((id): id is PackId => PACK_IDS.includes(id as PackId)))];
+}
+
+function sanitiseUsage(raw: unknown): Usage {
+  if (!raw || typeof raw !== 'object') return { ...EMPTY_USAGE };
+  const usage = raw as Partial<Usage>;
+  const int = (value: unknown) => (typeof value === 'number' && Number.isFinite(value) && value > 0 ? Math.floor(value) : 0);
+  return {
+    day: typeof usage.day === 'string' ? usage.day.slice(0, 10) : '',
+    asked: int(usage.asked),
+    packCredits: int(usage.packCredits),
+  };
+}
 
 function isBrowser() {
   return typeof window !== 'undefined' && typeof window.localStorage !== 'undefined';
@@ -99,6 +124,8 @@ function load(): AppData {
       profiles,
       activeId,
       settings: { ...defaultSettings, ...(parsed.settings ?? {}) },
+      packs: sanitisePacks(parsed.packs),
+      usage: sanitiseUsage(parsed.usage),
     };
   } catch {
     return emptyData();
@@ -264,6 +291,20 @@ export function updateSettings(patch: Partial<Settings>) {
   commit({ ...state, settings: { ...state.settings, ...patch } });
 }
 
+export function activatePack(id: PackId) {
+  const next = activate(state.packs, state.usage, id);
+  commit({ ...state, packs: next.packs, usage: next.usage });
+}
+
+export function resetPacks() {
+  commit({ ...state, packs: [], usage: { ...EMPTY_USAGE } });
+}
+
+/** Call after Vaani answers a question, so the allowance is actually spent. */
+export function recordQuestion() {
+  commit({ ...state, usage: spendQuestion(state.usage, todayKey()) });
+}
+
 export function exportData(): string {
   return JSON.stringify(state, null, 2);
 }
@@ -280,6 +321,8 @@ export function importData(raw: string): { ok: boolean; message: string } {
       profiles,
       activeId: profiles.some((p) => p.id === parsed.activeId) ? parsed.activeId! : profiles[0].id,
       settings: { ...defaultSettings, ...(parsed.settings ?? {}) },
+      packs: sanitisePacks(parsed.packs),
+      usage: sanitiseUsage(parsed.usage),
     });
     chartCache.clear();
     return { ok: true, message: `Imported ${profiles.length} profile${profiles.length === 1 ? '' : 's'}.` };
@@ -319,6 +362,12 @@ export function addSampleProfile(): Profile {
   if (existing) {
     setActiveProfile(existing.id);
     return existing;
+  }
+  // Never let the sample button bypass the profile limit: if the circle is
+  // already full, open the active profile instead of saving another one.
+  if (state.profiles.length >= profileLimit(state.packs)) {
+    const active = state.profiles.find((profile) => profile.id === state.activeId) ?? state.profiles[0];
+    if (active) return active;
   }
   return saveProfile(SAMPLE_DRAFT);
 }

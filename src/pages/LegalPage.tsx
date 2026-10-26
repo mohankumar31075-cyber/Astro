@@ -103,6 +103,13 @@ const DOCS: LegalDoc[] = [
         ],
       },
       {
+        heading: 'Packs and payments',
+        paragraphs: [
+          'The free tier covers the chart, the daily horoscope, the panchang, compatibility and a small daily question allowance. Packs raise those limits. In this open-source build there is no payment processor connected: activating a pack is a local demo, no card details are requested, and nothing is charged. Entitlements are stored in this browser alongside your charts and disappear when you erase your data.',
+          'Where packs are sold in a hosted deployment, the purchase terms, taxes and refund policy of that deployment apply, and the entitlement is verified server-side. Nothing in this repository processes or stores payment credentials.',
+        ],
+      },
+      {
         heading: 'Your responsibilities',
         paragraphs: ['By using AstroSutra you agree to:'],
         list: [

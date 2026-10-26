@@ -11,6 +11,7 @@ import {
   IconPlus,
   IconSettings,
   IconSparkles,
+  IconTag,
   IconUsers,
 } from './Icons';
 
@@ -24,6 +25,7 @@ const NAV: Array<{ to: string; label: string; icon: typeof IconDashboard; group:
   { to: '/panchang', label: 'Panchang', icon: IconCalendar, group: 'The sky today' },
   { to: '/learn', label: 'Astropedia', icon: IconBook, group: 'The sky today' },
   { to: '/family', label: 'Your circle', icon: IconUsers, group: 'Account' },
+  { to: '/packs', label: 'Plans & packs', icon: IconTag, group: 'Account' },
   { to: '/settings', label: 'Settings & data', icon: IconSettings, group: 'Account' },
 ];
 
@@ -38,6 +40,7 @@ const TITLES: Record<string, string> = {
   '/learn': 'Astropedia',
   '/family': 'Your circle',
   '/settings': 'Settings & data',
+  '/packs': 'Plans & packs',
 };
 
 export function Brand() {

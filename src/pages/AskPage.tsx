@@ -1,11 +1,12 @@
 import { useMemo, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Badge, Card, CardTitle, PageHeader } from '../components/ui';
+import { Badge, Callout, Card, CardTitle, PageHeader } from '../components/ui';
 import { IconArrowRight, IconLock, IconSparkles } from '../components/Icons';
 import { NAKSHATRAS, PLANETS, RASHIS } from '../lib/constants';
-import { useActiveChart, useActiveProfile } from '../lib/store';
+import { recordQuestion, useActiveChart, useActiveProfile, useAppData } from '../lib/store';
 import { askVaani, SUGGESTED_QUESTIONS, type VaaniAnswer } from '../lib/vaani';
 import { dashaTreeAt, formatPeriodDate } from '../lib/dasha';
+import { questionsLeft, todayKey } from '../lib/packs';
 
 interface Message {
   id: string;
@@ -17,6 +18,7 @@ interface Message {
 export default function AskPage() {
   const profile = useActiveProfile();
   const chart = useActiveChart();
+  const data = useAppData();
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState('');
   const inputRef = useRef<HTMLTextAreaElement>(null);
@@ -25,10 +27,13 @@ export default function AskPage() {
 
   if (!profile || !chart || !tree) return null;
 
+  const left = questionsLeft(data.usage, todayKey());
+
   const send = (question: string) => {
     const clean = question.trim();
-    if (!clean) return;
+    if (!clean || left <= 0) return;
     const answer = askVaani(clean, chart, new Date());
+    recordQuestion();
     setMessages((current) => [
       ...current,
       { id: `u-${Date.now()}`, role: 'user', text: clean },
@@ -75,7 +80,13 @@ export default function AskPage() {
                   <div className="eyebrow">Start with</div>
                   <div className="suggestions">
                     {SUGGESTED_QUESTIONS.slice(0, 4).map((question) => (
-                      <button key={question} type="button" className="suggestion" onClick={() => send(question)}>
+                      <button
+                        key={question}
+                        type="button"
+                        className="suggestion"
+                        onClick={() => send(question)}
+                        disabled={left <= 0}
+                      >
                         {question}
                       </button>
                     ))}
@@ -132,35 +143,53 @@ export default function AskPage() {
               </div>
             )}
 
-            <form
-              className="chat-composer"
-              onSubmit={(event) => {
-                event.preventDefault();
-                send(input);
-              }}
-            >
-              <textarea
-                ref={inputRef}
-                className="textarea"
-                value={input}
-                onChange={(event) => setInput(event.target.value)}
-                onKeyDown={(event) => {
-                  if (event.key === 'Enter' && !event.shiftKey) {
+            {left > 0 ? (
+              <>
+                <form
+                  className="chat-composer"
+                  onSubmit={(event) => {
                     event.preventDefault();
                     send(input);
-                  }
-                }}
-                placeholder="Ask about your chart…"
-                aria-label="Your question"
-              />
-              <button className="btn" type="submit" disabled={!input.trim()}>
-                Ask <IconArrowRight />
-              </button>
-            </form>
-            <p className="tiny dim">
-              Vaani describes patterns and timing in your chart. It does not predict events and will decline
-              medical, legal or crisis questions.
-            </p>
+                  }}
+                >
+                  <textarea
+                    ref={inputRef}
+                    className="textarea"
+                    value={input}
+                    onChange={(event) => setInput(event.target.value)}
+                    onKeyDown={(event) => {
+                      if (event.key === 'Enter' && !event.shiftKey) {
+                        event.preventDefault();
+                        send(input);
+                      }
+                    }}
+                    placeholder="Ask about your chart…"
+                    aria-label="Your question"
+                  />
+                  <button className="btn" type="submit" disabled={!input.trim()}>
+                    Ask <IconArrowRight />
+                  </button>
+                </form>
+                <p className="tiny dim">
+                  {left} question{left === 1 ? '' : 's'} left today.{' '}
+                  <Link to="/packs" className="muted">Get a pack</Link> · Vaani describes patterns and timing in your
+                  chart. It does not predict events and will decline medical, legal or crisis questions.
+                </p>
+              </>
+            ) : (
+              <div className="stack" style={{ gap: 10 }}>
+                <Callout tone="teal">
+                  You have used today&apos;s free questions. The allowance resets at midnight on this device.
+                </Callout>
+                <Link className="btn" to="/packs">
+                  <IconSparkles /> Get a question pack <IconArrowRight />
+                </Link>
+                <p className="tiny dim">
+                  Packs add 50 questions and never expire. Your chart, the daily horoscope and the panchang stay
+                  free.
+                </p>
+              </div>
+            )}
           </div>
         </Card>
 
@@ -215,7 +244,13 @@ export default function AskPage() {
             <div className="eyebrow">Other questions</div>
             <div className="suggestions">
               {SUGGESTED_QUESTIONS.slice(4).map((question) => (
-                <button key={question} type="button" className="suggestion" onClick={() => send(question)}>
+                <button
+                  key={question}
+                  type="button"
+                  className="suggestion"
+                  onClick={() => send(question)}
+                  disabled={left <= 0}
+                >
                   {question}
                 </button>
               ))}

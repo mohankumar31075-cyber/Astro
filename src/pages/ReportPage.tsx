@@ -1,15 +1,17 @@
 import { Link, useParams } from 'react-router-dom';
 import { Badge, Card, PageHeader } from '../components/ui';
-import { IconArrowRight, IconPrint } from '../components/Icons';
+import { IconArrowRight, IconLock, IconPrint } from '../components/Icons';
 import { generateReport, REPORT_DEFS, type ReportSlug } from '../lib/reports';
-import { useActiveChart, useActiveProfile } from '../lib/store';
+import { useActiveChart, useActiveProfile, useAppData } from '../lib/store';
 import { formatLocalDateTime } from '../lib/time';
 import { NAKSHATRAS, RASHIS } from '../lib/constants';
+import { FREE_LIMITS, reportSectionLimit } from '../lib/packs';
 
 export default function ReportPage() {
   const { slug } = useParams();
   const profile = useActiveProfile();
   const chart = useActiveChart();
+  const data = useAppData();
   if (!profile || !chart) return null;
   const valid = REPORT_DEFS.some((def) => def.slug === slug);
   if (!valid) {
@@ -24,6 +26,8 @@ export default function ReportPage() {
   }
   const report = generateReport(slug as ReportSlug, chart, new Date());
   const generated = new Date();
+  const sectionLimit = reportSectionLimit(data.packs);
+  const locked = Math.max(0, report.sections.length - sectionLimit);
 
   return (
     <div className="fade-in" id="report">
@@ -69,7 +73,7 @@ export default function ReportPage() {
       </Card>
 
       <div className="stack" style={{ gap: 18 }}>
-        {report.sections.map((section, index) => (
+        {report.sections.slice(0, sectionLimit).map((section, index) => (
           <Card key={section.title} as="article">
             <div className="row" style={{ gap: 10, marginBottom: 8 }}>
               <span className="badge">{String(index + 1).padStart(2, '0')}</span>
@@ -88,6 +92,29 @@ export default function ReportPage() {
           </Card>
         ))}
       </div>
+
+      {locked > 0 ? (
+        <Card className="card--gold" style={{ marginTop: 18 }}>
+          <div className="row" style={{ gap: 10, marginBottom: 8 }}>
+            <IconLock />
+            <h3 style={{ margin: 0 }}>
+              {locked} more section{locked === 1 ? '' : 's'} in this report
+            </h3>
+          </div>
+          <p className="small muted">
+            The free tier shows the first {FREE_LIMITS.reportSections} sections of every report. The report pack opens the rest of
+            this one and every other report, for good.
+          </p>
+          <div className="row" style={{ marginTop: 14, gap: 10 }}>
+            <Link className="btn btn--small" to="/packs">
+              Open the full report <IconArrowRight />
+            </Link>
+            <Link className="btn btn--ghost btn--small" to="/reports">
+              All reports
+            </Link>
+          </div>
+        </Card>
+      ) : null}
 
       <Card style={{ marginTop: 18 }}>
         <div className="eyebrow">Period timeline</div>

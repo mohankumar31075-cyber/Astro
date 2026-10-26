@@ -94,7 +94,7 @@ export default function HowItWorks() {
       </p>
 
       <div className="row" style={{ gap: 8, marginBottom: 30 }}>
-        <Badge tone="teal"><IconCheck width={12} height={12} /> 93 passing tests</Badge>
+        <Badge tone="teal"><IconCheck width={12} height={12} /> 116 passing tests</Badge>
         <Badge tone="violet">No network calls</Badge>
         <Badge>MIT licensed</Badge>
       </div>

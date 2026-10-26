@@ -38,6 +38,7 @@ from any commercial astrology app is used. See
 | `/dashboard` | Today at a glance: chart summary, dasha, transits, panchang |
 | `/chart` | Full kundli with the chart wheel |
 | `/horoscope`, `/horoscope/:slug` | Daily horoscope for any sign |
+| `/packs` | Free tier, packs, and the current entitlements |
 | `/match` | Compatibility between two saved profiles |
 | `/ask` | Ask Vaani |
 | `/panchang` | Panchang and muhurta for a date |
@@ -63,7 +64,7 @@ Other scripts:
 npm run build          # tsc -b && vite build  → dist/
 npm run preview        # serve the production build
 npm run typecheck      # tsc --noEmit
-npm run test           # 93 unit, engine and route tests (vitest)
+npm run test           # 116 unit, engine, entitlement and route tests (vitest)
 npm run test:watch     # during development
 npm run license:audit  # dependency licence gate (see below)
 ```
@@ -108,16 +109,39 @@ self-harm, and routes crisis messages to Tele-MANAS (14416) and AASRA
 - Because there is no server, deleting your browser storage really does delete
   your data. Export first if you want to keep it.
 
+## Plans: free tier and packs
+
+AstroSutra uses the pack model common to astrology apps — a generous free tier,
+then one-off purchases instead of a subscription. The rules are real and
+enforced by the UI and by `src/lib/packs.ts`:
+
+| | Free | With packs |
+| --- | --- | --- |
+| Birth chart, dasha, panchang, horoscope | Included | Included |
+| Saved profiles | 1 | 8 (family pack) |
+| Vaani questions | 3 per day | +50, never expiring (question pack) |
+| Reports | First 2 sections | Every section (report pack) |
+| Compatibility, export, erase | Included | Included |
+
+**This build has no payment processor connected.** Activating a pack is a local,
+reversible demo: no card is requested, nothing is charged, and there is no
+server to charge it on. The entitlement state lives in the same `localStorage`
+record as your charts and resets with **Settings → Erase**. In a hosted
+deployment, activation would be verified against a payment provider's webhook
+and the entitlement would live server-side; that is the one piece deliberately
+left out of the open-source build, and every upgrade screen says so.
+
 ## Testing
 
-93 tests across four files, run with Vitest:
+116 tests across five files, run with Vitest:
 
 | File | What it covers |
 | --- | --- |
 | `src/lib/astro.test.ts` (15) | Time zones, ayanamsa, ascendant, positions, navamsa, house assignment |
 | `src/lib/vedic.test.ts` (24) | Dasha tree, panchang against published values, yogas, Ashtakoot, transits, Sade Sati |
 | `src/lib/content.test.ts` (30) | City search, daily horoscope, Vaani intent routing and safety refusals, compatibility invariants |
-| `src/app.smoke.test.tsx` (24) | Server-renders every route and asserts the expected content appears |
+| `src/lib/packs.test.ts` (22) | Free-tier limits, daily rollover, question spending, pack activation, entitlements |
+| `src/app.smoke.test.tsx` (25) | Server-renders every route and asserts the expected content appears |
 
 ```bash
 npm run test
@@ -144,6 +168,7 @@ src/
     vaani.ts      question classification and chart-based answers
     reports.ts    report narratives
     glossary.ts   Astropedia entries
+    packs.ts      free-tier limits and pack entitlements
     cities.ts     offline place list
     store.ts      localStorage state, export/import
   components/     Layout, icons, UI primitives, SVG charts
@@ -211,8 +236,9 @@ same category as Melooha. It is not a fork, a copy, or a reskin.
   but not perfect for historical Indian local time.
 - **Compatibility is tradition, not truth.** Ashtakoot scores 36 points of
   classical rule-following. They are not a verdict on a relationship.
-- **No payments.** This build is free and open source: there are no accounts, no
-  subscriptions and no store integration.
+- **No checkout.** The pack limits are real, but activation is local and free:
+  there is no payment provider, no account and no subscription anywhere in the
+  code.
 
 ## Contributing
 

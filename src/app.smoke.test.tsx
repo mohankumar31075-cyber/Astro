@@ -46,6 +46,7 @@ const ROUTES: Array<[string, string[]]> = [
   ['/family', ['Your circle']],
   ['/settings', ['Reading preferences']],
   ['/learn', ['The vocabulary, explained']],
+  ['/packs', ['Free forever, or packs that never expire']],
   ['/not-a-real-page', ['This house is empty']],
 ];
 

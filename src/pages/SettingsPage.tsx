@@ -10,6 +10,7 @@ import {
   useActiveProfile,
   useAppData,
 } from '../lib/store';
+import { describePlan, profileLimit, questionsLeft, todayKey } from '../lib/packs';
 import { formatLocalDateTime } from '../lib/time';
 
 export default function SettingsPage() {
@@ -160,6 +161,22 @@ export default function SettingsPage() {
           </p>
           <Link className="btn btn--quiet btn--small" to="/legal/privacy" style={{ marginTop: 8 }}>
             Read the privacy policy
+          </Link>
+        </Card>
+
+        <Card>
+          <CardTitle title="Plan" eyebrow="Entitlements" />
+          <p className="small muted" style={{ marginBottom: 12 }}>
+            {describePlan(data.packs, data.usage, todayKey())}
+          </p>
+          <dl style={{ margin: 0 }}>
+            <Property label="Questions left today">{questionsLeft(data.usage, todayKey())}</Property>
+            <Property label="Saved profiles">
+              {data.profiles.length} of {profileLimit(data.packs)}
+            </Property>
+          </dl>
+          <Link className="btn btn--ghost btn--small" to="/packs" style={{ marginTop: 12 }}>
+            Plans &amp; packs
           </Link>
         </Card>
 

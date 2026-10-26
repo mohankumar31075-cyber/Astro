@@ -16,6 +16,7 @@ import SettingsPage from './pages/SettingsPage';
 import LearnPage from './pages/LearnPage';
 import LegalPage from './pages/LegalPage';
 import HowItWorks from './pages/HowItWorks';
+import PacksPage from './pages/PacksPage';
 import NotFound from './pages/NotFound';
 
 function ScrollToTop() {
@@ -54,6 +55,7 @@ export default function App() {
           <Route path="/family" element={<FamilyPage />} />
           <Route path="/settings" element={<SettingsPage />} />
           <Route path="/learn" element={<LearnPage />} />
+          <Route path="/packs" element={<PacksPage />} />
         </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>

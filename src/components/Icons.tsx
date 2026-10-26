@@ -19,6 +19,13 @@ const base = (props: IconProps) => ({
   ...props,
 });
 
+export const IconTag = (p: IconProps) => (
+  <svg {...base(p)}>
+    <path d="M3.5 12.2V4.8c0-.7.6-1.3 1.3-1.3h7.4c.4 0 .7.1 1 .3l7.3 7.3c.5.5.5 1.3 0 1.8l-6.6 6.6c-.5.5-1.3.5-1.8 0L3.8 13.2a1.4 1.4 0 0 1-.3-1Z" />
+    <circle cx="8.2" cy="8.2" r="1.4" />
+  </svg>
+);
+
 export const IconDashboard = (p: IconProps) => (
   <svg {...base(p)}>
     <rect x="3" y="3" width="7.5" height="7.5" rx="1.6" />

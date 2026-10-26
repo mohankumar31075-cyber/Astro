@@ -257,6 +257,52 @@ export default function Landing() {
         </div>
       </section>
 
+      <section className="section" id="plans">
+        <div className="row-between" style={{ marginBottom: 18, gap: 20 }}>
+          <div>
+            <Eyebrow>Plans</Eyebrow>
+            <h2>Free to use. Packs only if you want more.</h2>
+          </div>
+          <Link className="small muted" to={hasProfile ? '/packs' : '/welcome'}>
+            Compare plans <IconArrowRight />
+          </Link>
+        </div>
+        <div className="grid grid-2">
+          <Card>
+            <div className="row-between" style={{ marginBottom: 6 }}>
+              <h3 style={{ margin: 0 }}>Free</h3>
+              <Badge tone="teal">No card, no account</Badge>
+            </div>
+            <CheckList
+              items={[
+                'Your full kundli, dasha and panchang',
+                'Daily horoscope for all twelve signs',
+                'Compatibility between your saved profiles',
+                'Three chart-based questions a day',
+              ]}
+            />
+          </Card>
+          <Card>
+            <div className="row-between" style={{ marginBottom: 6 }}>
+              <h3 style={{ margin: 0 }}>Packs</h3>
+              <Badge tone="violet">One-off, never expire</Badge>
+            </div>
+            <CheckList
+              items={[
+                'Question pack: fifty more questions',
+                'Report pack: the full written reports',
+                'Family pack: up to eight saved profiles',
+                'Everything: all three, once',
+              ]}
+            />
+          </Card>
+        </div>
+        <p className="tiny dim" style={{ marginTop: 12 }}>
+          This open-source build has no payment processor connected: packs can be activated locally for free, and
+          reset at any time. The limits and the upgrade screens are the real product logic.
+        </p>
+      </section>
+
       <section className="section">
         <Card className="card--gold card--pad-lg">
           <div className="row-between" style={{ gap: 26 }}>
@@ -290,6 +336,7 @@ export default function Landing() {
           <Link to="/legal/notices">Third-party notices</Link>
           <Link to="/legal/licensing">Licensing</Link>
           <Link to="/how-it-works">Method</Link>
+          <Link to={hasProfile ? '/packs' : '/welcome'}>Plans</Link>
         </div>
       </footer>
     </div>

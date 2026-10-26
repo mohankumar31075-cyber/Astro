@@ -13,6 +13,7 @@ import {
   type ProfileDraft,
 } from '../lib/store';
 import { NAKSHATRAS, RASHIS } from '../lib/constants';
+import { profileLimit } from '../lib/packs';
 import { formatLocalDateTime } from '../lib/time';
 
 export default function FamilyPage() {
@@ -20,6 +21,8 @@ export default function FamilyPage() {
   const active = useActiveProfile();
   const [mode, setMode] = useState<{ type: 'list' } | { type: 'add' } | { type: 'edit'; id: string }>({ type: 'list' });
   const editing = mode.type === 'edit' ? data.profiles.find((p) => p.id === mode.id) : undefined;
+  const limit = profileLimit(data.packs);
+  const atLimit = data.profiles.length >= limit;
 
   if (mode.type !== 'list') {
     return (
@@ -50,11 +53,25 @@ export default function FamilyPage() {
         title="Your circle"
         description="Every profile is a separate chart. Switch the active profile to change what the dashboard, readings and reports are built from."
         actions={
-          <button type="button" className="btn btn--small" onClick={() => setMode({ type: 'add' })}>
-            <IconPlus /> Add member
-          </button>
+          atLimit ? (
+            <Link className="btn btn--ghost btn--small" to="/packs">
+              <IconPlus /> Add more with a pack
+            </Link>
+          ) : (
+            <button type="button" className="btn btn--small" onClick={() => setMode({ type: 'add' })}>
+              <IconPlus /> Add member
+            </button>
+          )
         }
       />
+
+      {atLimit && data.profiles.length > 0 ? (
+        <Callout>
+          You have saved {data.profiles.length} of {limit} profile{limit === 1 ? '' : 's'} on the free tier. The family
+          pack raises the limit to eight and unlocks compatibility between everyone you save.{' '}
+          <Link to="/packs" className="muted">See the packs</Link>.
+        </Callout>
+      ) : null}
 
       {data.profiles.length === 0 ? (
         <Card>
