@@ -88,6 +88,7 @@ export default function Onboarding() {
 
         <div style={{ marginTop: wantsSample ? 20 : 0 }}>
           <ProfileForm
+            headingLevel="h1"
             onSubmit={(draft) => {
               saveProfile(draft);
               navigate('/dashboard');

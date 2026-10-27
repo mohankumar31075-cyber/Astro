@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useMemo, useState, type CSSProperties, type ReactNode } from 'react';
 import { ALL_TIME_ZONES, CITIES, searchCities, type City } from '../lib/cities';
 import { validateDraft, type Profile, type ProfileDraft } from '../lib/store';
 import { IconArrowRight, IconCheck, IconLocation, IconSearch } from './Icons';
@@ -21,9 +21,26 @@ export function draftFromProfile(profile: Profile): ProfileDraft {
   };
 }
 
+function StepTitle({
+  as: Tag,
+  children,
+  style,
+}: {
+  as: 'h1' | 'h2';
+  children: ReactNode;
+  style?: CSSProperties;
+}) {
+  return (
+    <Tag style={style} className={Tag === 'h1' ? 'form-title' : undefined}>
+      {children}
+    </Tag>
+  );
+}
+
 export function ProfileForm({
   initial,
   onSubmit,
+  headingLevel = 'h2',
   submitLabel = 'Create chart',
   onCancel,
 }: {
@@ -31,6 +48,8 @@ export function ProfileForm({
   onSubmit: (draft: ProfileDraft) => void;
   submitLabel?: string;
   onCancel?: () => void;
+  /** 'h1' when the form is the whole page; 'h2' when it sits under a PageHeader. */
+  headingLevel?: 'h1' | 'h2';
 }) {
   const [step, setStep] = useState(0);
   const [draft, setDraft] = useState<ProfileDraft>(
@@ -89,7 +108,7 @@ export function ProfileForm({
 
       {step === 0 ? (
         <>
-          <h2 style={{ marginBottom: 6 }}>Who is this chart for?</h2>
+          <StepTitle as={headingLevel} style={{ marginBottom: 6 }}>Who is this chart for?</StepTitle>
           <p className="muted small" style={{ marginBottom: 24 }}>
             You can add family members later. Names stay on this device.
           </p>
@@ -140,7 +159,7 @@ export function ProfileForm({
 
       {step === 1 ? (
         <>
-          <h2 style={{ marginBottom: 6 }}>When were they born?</h2>
+          <StepTitle as={headingLevel} style={{ marginBottom: 6 }}>When were they born?</StepTitle>
           <p className="muted small" style={{ marginBottom: 24 }}>
             Exact local time matters: it sets the ascendant and the balance of the first dasha.
           </p>
@@ -197,7 +216,7 @@ export function ProfileForm({
 
       {step === 2 ? (
         <>
-          <h2 style={{ marginBottom: 6 }}>Where were they born?</h2>
+          <StepTitle as={headingLevel} style={{ marginBottom: 6 }}>Where were they born?</StepTitle>
           <p className="muted small" style={{ marginBottom: 20 }}>
             Search a city, or enter coordinates directly. Time zones are handled with historical offsets.
           </p>

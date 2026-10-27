@@ -75,7 +75,14 @@ export default function PanchangPage() {
         title="Panchang & muhurta"
         description="Tithi, vara, nakshatra, yoga and karana computed for the coordinates you choose — with the inauspicious windows marked."
         actions={
-          <input type="date" className="input" style={{ width: 160 }} value={dateISO} onChange={(event) => setDateISO(event.target.value)} />
+          <input
+            type="date"
+            className="input"
+            style={{ width: 160 }}
+            aria-label="Panchang date"
+            value={dateISO}
+            onChange={(event) => setDateISO(event.target.value)}
+          />
         }
       />
 

@@ -69,7 +69,7 @@ export default function ChartPage() {
             <span><span className="glyph">♄</span> Saturn</span>
             <span><span className="glyph">☊</span> Rahu</span>
             <span><span className="glyph">☋</span> Ketu</span>
-            <span className="dim">℞ retrograde</span>
+            <span className="dim">R retrograde</span>
           </div>
           <p className="tiny dim" style={{ marginTop: 10 }}>
             {data.settings.chartStyle === 'north'

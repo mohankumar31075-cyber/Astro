@@ -41,6 +41,8 @@ export default function LearnPage() {
             <IconSearch width={18} height={18} style={{ color: 'var(--muted-dim)' }} />
             <input
               className="input"
+              type="search"
+              aria-label="Search the glossary"
               placeholder="Search terms, e.g. nakshatra, dasha, nadi…"
               value={query}
               onChange={(event) => setQuery(event.target.value)}

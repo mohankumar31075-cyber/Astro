@@ -64,7 +64,7 @@ Other scripts:
 npm run build          # tsc -b && vite build  → dist/
 npm run preview        # serve the production build
 npm run typecheck      # tsc --noEmit
-npm run test           # 116 unit, engine, entitlement and route tests (vitest)
+npm run test           # 123 unit, engine, entitlement, chart and route tests (vitest)
 npm run test:watch     # during development
 npm run license:audit  # dependency licence gate (see below)
 ```
@@ -133,7 +133,7 @@ left out of the open-source build, and every upgrade screen says so.
 
 ## Testing
 
-116 tests across five files, run with Vitest:
+123 tests across six files, run with Vitest:
 
 | File | What it covers |
 | --- | --- |
@@ -141,6 +141,7 @@ left out of the open-source build, and every upgrade screen says so.
 | `src/lib/vedic.test.ts` (24) | Dasha tree, panchang against published values, yogas, Ashtakoot, transits, Sade Sati |
 | `src/lib/content.test.ts` (30) | City search, daily horoscope, Sutra intent routing and safety refusals, compatibility invariants |
 | `src/lib/packs.test.ts` (22) | Free-tier limits, daily rollover, question spending, pack activation, entitlements |
+| `src/components/Charts.test.tsx` (7) | Chart geometry: every label stays inside the frame, including a seven-planet stellium |
 | `src/app.smoke.test.tsx` (25) | Server-renders every route and asserts the expected content appears |
 
 ```bash

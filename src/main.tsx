@@ -13,17 +13,21 @@ import '@fontsource/manrope/latin-400.css';
 import '@fontsource/manrope/latin-500.css';
 import '@fontsource/manrope/latin-600.css';
 import '@fontsource/manrope/latin-700.css';
-// Symbols are not in any Latin subset — this file carries the zodiac and
-// planet glyphs (☉ ☽ ♀ ♂ ♃ ♄ ☊ ☋ ★).
-import '@fontsource/noto-sans-symbols-2/400.css';
+// The astrological glyphs (♈–♓ ☉ ☽ ♀ ♂ ♃ ♄ ☊ ☋ ★) come from a 14 kB subset
+// built by scripts/subset-symbols.py and declared in styles/app.css — no
+// fontsource CSS import, so the browser downloads one small file instead of a
+// 382 kB package that only ever supplied two of the characters.
 import './styles/app.css';
 
 import App from './App';
+import { ErrorBoundary } from './components/ErrorBoundary';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <ErrorBoundary>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </ErrorBoundary>
   </StrictMode>,
 );

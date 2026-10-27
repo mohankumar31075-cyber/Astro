@@ -1,6 +1,6 @@
 # Third-party notices
 
-**AstroSutra 1.0.0** — generated on 2026-10-26 from the installed dependency tree.
+**AstroSutra 1.0.0** — generated on 2026-10-27 from the installed dependency tree.
 Re-run `node scripts/generate-notices.mjs` after changing dependencies, then `npm run license:audit`.
 
 This file is bundled with the application and shown in-app under **Legal → Third-party notices**, so the
@@ -21,10 +21,23 @@ its editorial text is CC BY 4.0 (see `docs/CONTENT-LICENSING.md`).
 | `astronomy-engine` | 2.1.19 | MIT |
 | `@fontsource/cormorant-garamond` | 5.3.0 | OFL-1.1 |
 | `@fontsource/manrope` | 5.3.0 | OFL-1.1 |
+
+### Bundled glyph font — `src/assets/fonts/astrosutra-glyphs.woff2`
+
+The astrological characters (♈–♓ ♀ ♂ ♃ ♄ ☿ ☽ ☉ ☊ ☋ ★) come from a single 14 kB WOFF2 file built by
+`scripts/subset-symbols.py`. It is a **subset and merge** of Noto Sans Symbols and Noto Sans Symbols 2,
+renamed to _AstroSutra Glyphs_ in line with OFL 1.1 §3. The upstream copyright notice
+(© The Noto Project Authors) is preserved inside the font's name table.
+
+| Source package | Version | Licence |
+| --- | --- | --- |
+| `@fontsource/noto-sans-symbols` | 5.3.0 | OFL-1.1 |
 | `@fontsource/noto-sans-symbols-2` | 5.3.0 | OFL-1.1 |
 
-The three font packages contain the same SIL Open Font Licence text, reproduced once below. Font files are
-embedded as WOFF2 and carry the copyright of their respective projects.
+The source packages are installed as build-time dependencies only; the merged font above is what ships.
+
+The two Latin families (Cormorant Garamond, Manrope) contain the same SIL Open Font Licence text, reproduced
+once below. All font files are embedded as WOFF2 and carry the copyright of their respective projects.
 
 ## Build-time dependencies (not distributed)
 

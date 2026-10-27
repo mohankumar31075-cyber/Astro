@@ -21,13 +21,14 @@
   "dependencies": {
     "@fontsource/cormorant-garamond": "^5.3.0",
     "@fontsource/manrope": "^5.3.0",
-    "@fontsource/noto-sans-symbols-2": "^5.3.0",
     "astronomy-engine": "^2.1.19",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
     "react-router-dom": "^7.18.4"
   },
   "devDependencies": {
+    "@fontsource/noto-sans-symbols": "^5.3.0",
+    "@fontsource/noto-sans-symbols-2": "^5.3.0",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
     "@vitejs/plugin-react": "^6.1.2",

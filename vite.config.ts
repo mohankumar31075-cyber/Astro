@@ -15,6 +15,21 @@ export default defineConfig({
     port: 4173,
     allowedHosts: true,
   },
+  build: {
+    // One 600 kB chunk delays first paint on a phone. Split the two heaviest
+    // dependencies out so they cache independently and the app shell paints
+    // while the ephemeris is still downloading.
+    rolldownOptions: {
+      output: {
+        advancedChunks: {
+          groups: [
+            { name: 'astronomy', test: /node_modules[\\/]astronomy-engine/ },
+            { name: 'react', test: /node_modules[\\/](react|react-dom|react-router|react-router-dom|scheduler)[\\/]/ },
+          ],
+        },
+      },
+    },
+  },
   test: {
     environment: 'node',
     include: ['src/**/*.test.{ts,tsx}'],

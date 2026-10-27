@@ -23,8 +23,15 @@ const RUNTIME = [
   'astronomy-engine',
   '@fontsource/cormorant-garamond',
   '@fontsource/manrope',
-  '@fontsource/noto-sans-symbols-2',
 ];
+
+/**
+ * Not distributed directly: the shipped glyph webfont is a merged subset built
+ * from these two at author time (scripts/subset-symbols.py) and committed as
+ * src/assets/fonts/astrosutra-glyphs.woff2. They are credited in their own
+ * section because the distributed file is derived from them.
+ */
+const BUNDLED_FONT_SOURCES = ['@fontsource/noto-sans-symbols', '@fontsource/noto-sans-symbols-2'];
 
 const DEV = [
   'vite',
@@ -49,6 +56,7 @@ const COPYRIGHT = {
   '@fontsource/cormorant-garamond':
     'Copyright 2015 The Cormorant Project Authors (github.com/CatharsisFonts/Cormorant)',
   '@fontsource/manrope': 'Copyright 2019 The Manrope Project Authors (https://github.com/sharanda/manrope)',
+  '@fontsource/noto-sans-symbols': 'Copyright 2022 The Noto Project Authors (https://github.com/notofonts/symbols)',
   '@fontsource/noto-sans-symbols-2': 'Copyright 2022 The Noto Project Authors (https://github.com/notofonts/symbols)',
   vite: 'Copyright (c) 2019-present, Yuxi (Evan) You and Vite contributors',
   '@vitejs/plugin-react': 'Copyright (c) 2019-present, Yuxi (Evan) You and Vite contributors',
@@ -122,8 +130,21 @@ its editorial text is CC BY 4.0 (see \`docs/CONTENT-LICENSING.md\`).
 | --- | --- | --- |
 ${rows(RUNTIME)}
 
-The three font packages contain the same SIL Open Font Licence text, reproduced once below. Font files are
-embedded as WOFF2 and carry the copyright of their respective projects.
+### Bundled glyph font — \`src/assets/fonts/astrosutra-glyphs.woff2\`
+
+The astrological characters (♈–♓ ♀ ♂ ♃ ♄ ☿ ☽ ☉ ☊ ☋ ★) come from a single 14 kB WOFF2 file built by
+\`scripts/subset-symbols.py\`. It is a **subset and merge** of Noto Sans Symbols and Noto Sans Symbols 2,
+renamed to _AstroSutra Glyphs_ in line with OFL 1.1 §3. The upstream copyright notice
+(© The Noto Project Authors) is preserved inside the font's name table.
+
+| Source package | Version | Licence |
+| --- | --- | --- |
+${rows(BUNDLED_FONT_SOURCES)}
+
+The source packages are installed as build-time dependencies only; the merged font above is what ships.
+
+The two Latin families (Cormorant Garamond, Manrope) contain the same SIL Open Font Licence text, reproduced
+once below. All font files are embedded as WOFF2 and carry the copyright of their respective projects.
 
 ## Build-time dependencies (not distributed)
 

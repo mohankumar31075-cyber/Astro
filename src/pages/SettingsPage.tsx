@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Badge, Callout, Card, CardTitle, PageHeader, Property } from '../components/ui';
 import { IconDownload, IconLock, IconPrint, IconTrash } from '../components/Icons';
@@ -17,6 +17,7 @@ export default function SettingsPage() {
   const data = useAppData();
   const profile = useActiveProfile();
   const [status, setStatus] = useState<string | null>(null);
+  const fileInput = useRef<HTMLInputElement>(null);
 
   const download = () => {
     const blob = new Blob([exportData()], { type: 'application/json' });
@@ -115,15 +116,26 @@ export default function SettingsPage() {
             </div>
 
             <div>
-              <label className="btn btn--ghost btn--small btn--full" style={{ cursor: 'pointer' }}>
+              <button
+                type="button"
+                className="btn btn--ghost btn--small btn--full"
+                onClick={() => fileInput.current?.click()}
+              >
                 Import a backup
-                <input
-                  type="file"
-                  accept="application/json"
-                  style={{ display: 'none' }}
-                  onChange={(event) => onImport(event.target.files?.[0] ?? null)}
-                />
-              </label>
+              </button>
+              <input
+                ref={fileInput}
+                type="file"
+                accept="application/json"
+                aria-hidden="true"
+                tabIndex={-1}
+                style={{ display: 'none' }}
+                onChange={(event) => {
+                  const file = event.target.files?.[0] ?? null;
+                  void onImport(file);
+                  event.target.value = '';
+                }}
+              />
               <p className="tiny dim" style={{ marginTop: 6 }}>
                 Importing replaces the profiles currently on this device.
               </p>

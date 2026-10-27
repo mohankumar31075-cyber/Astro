@@ -1,6 +1,12 @@
 /**
  * Birth-chart renderers.
  *
+ * Retrograde planets are marked with a plain "R" rather than the traditional
+ * ℞ (U+211E): no font bundled with the app carries that codepoint, so it would
+ * fall back to whatever the operating system happens to have and render as a
+ * tofu box on stock Android. "R" is the marker ephemeris tables have used for
+ * centuries and is present in every font.
+ *
  * Both diagrams are drawn from the same computed data:
  *  • North Indian (diamond) — houses fixed, signs rotate. House 1 is the top
  *    diamond and the count runs anticlockwise.
@@ -52,9 +58,28 @@ function HouseContents({
   const sign = chart.houseSigns[house - 1];
   const planets = planetsIn(chart, house);
   const signSize = compact ? 3.4 : 3.8;
-  const planetSize = compact ? 3.1 : 3.4;
-  const showDegree = width >= 24;
-  const centreY = y - (planets.length * planetSize) / 2;
+
+  // Stelliums are real — five or six grahas in one rashi happens — and the
+  // triangular houses are their narrowest at the point where the stack would
+  // end. Rather than let a tall column cross into the neighbouring house, lay
+  // crowded houses out as a small grid of glyphs and scale the type down, the
+  // way printed panchang charts do. Degrees come back as soon as there is room.
+  const crowded = planets.length > 4;
+  const columns = crowded ? 2 : 1;
+  const rows = Math.ceil(planets.length / columns);
+  const planetSize = (compact ? 3.1 : 3.4) * (crowded ? 0.72 : 1);
+  const showDegree = width >= 24 && planets.length <= 4;
+  const stepY = planetSize + (crowded ? 0.5 : 0.6);
+  const stepX = crowded ? 7.2 : 0;
+
+  // Vertical extent of the ink, used to keep the cluster inside the frame.
+  const signAscent = signSize * 0.95;
+  const topInk = signSize + 1.2 + signAscent;
+  const bottomInk = Math.max(0, rows - 1) * stepY + planetSize * 0.3;
+  const minCentre = 1.8 + topInk;
+  const maxCentre = 98.2 - bottomInk;
+  let centreY = y - ((rows - 1) * stepY) / 2;
+  centreY = Math.min(Math.max(centreY, minCentre), Math.max(minCentre, maxCentre));
 
   return (
     <g>
@@ -67,26 +92,33 @@ function HouseContents({
       >
         {RASHIS[sign].english.slice(0, 3)}
       </text>
-      {planets.map((planet, index) => (
-        <text
-          key={planet.key}
-          x={x}
-          y={centreY + index * (planetSize + 0.6)}
-          textAnchor="middle"
-          className={planet.retrograde ? 'chart-planet chart-planet--retro' : 'chart-planet'}
-          style={{ fontSize: planetSize }}
-        >
-          <tspan className="glyph">{PLANETS[planet.key].symbol}</tspan>
-          {showDegree ? (
-            <tspan className="chart-deg" style={{ fontSize: planetSize * 0.68 }}>
-              {' '}
-              {planet.degreeInSign.toFixed(0)}°{planet.retrograde ? '℞' : ''}
-            </tspan>
-          ) : (
-            planet.retrograde ? <tspan className="chart-deg"> ℞</tspan> : null
-          )}
-        </text>
-      ))}
+      {planets.map((planet, index) => {
+        const column = Math.floor(index / rows);
+        const row = index % rows;
+        const offsetX = (column - (columns - 1) / 2) * stepX;
+        return (
+          <text
+            key={planet.key}
+            x={x + offsetX}
+            y={centreY + row * stepY}
+            textAnchor="middle"
+            className={planet.retrograde ? 'chart-planet chart-planet--retro' : 'chart-planet'}
+            style={{ fontSize: planetSize }}
+          >
+            <tspan className="glyph">{PLANETS[planet.key].symbol}</tspan>
+            {showDegree ? (
+              <tspan className="chart-deg" style={{ fontSize: planetSize * 0.68 }}>
+                {' '}
+                {planet.degreeInSign.toFixed(0)}°{planet.retrograde ? ' R' : ''}
+              </tspan>
+            ) : planet.retrograde ? (
+              <tspan className="chart-deg" style={{ fontSize: planetSize * 0.62 }}>
+                {' '}R
+              </tspan>
+            ) : null}
+          </text>
+        );
+      })}
       {house === 1 ? (
         <text x={x} y={centreY - signSize - 5.2} textAnchor="middle" className="chart-lagna" style={{ fontSize: 3 }}>
           LAGNA
@@ -165,7 +197,7 @@ export function SouthChart({ chart }: { chart: BirthChart }) {
                     {' '}
                     {planet.degreeInSign.toFixed(0)}
                   </tspan>
-                  {planet.retrograde ? <tspan className="chart-deg"> ℞</tspan> : null}
+                  {planet.retrograde ? <tspan className="chart-deg"> R</tspan> : null}
                 </text>
               ))}
             </g>

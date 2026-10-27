@@ -5,8 +5,7 @@ import { IconHeart, IconPrint, IconSparkles } from '../components/Icons';
 import { NAKSHATRAS, PLANETS, RASHIS } from '../lib/constants';
 import { chartForProfile, useAppData, useActiveProfile } from '../lib/store';
 import { computeMatch, formatPoints, kootaPercent } from '../lib/matching';
-import { formatPeriodDate } from '../lib/dasha';
-import { dashaTreeAt } from '../lib/dasha';
+import { dashaTreeAt, formatPeriodDate } from '../lib/dasha';
 
 export default function MatchPage() {
   const data = useAppData();

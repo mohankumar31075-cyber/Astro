@@ -139,7 +139,10 @@ export function Layout() {
 
   return (
     <div className="app-shell">
-      <aside className="sidebar no-print">
+      <a className="skip-link" href="#main-content">
+        Skip to content
+      </a>
+      <aside className="sidebar no-print" aria-label="Sections">
         <Brand />
         <nav className="nav" aria-label="Main">
           {groups.map((group) => (
@@ -166,7 +169,7 @@ export function Layout() {
         </div>
       </aside>
 
-      <main className="main">
+      <main className="main" id="main-content" tabIndex={-1}>
         <div className="main-inner">
           <div className="topbar no-print">
             <div className="topbar-left">

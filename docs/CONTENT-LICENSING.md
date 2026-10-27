@@ -127,17 +127,27 @@ the real installed tree and also ships inside the app bundle (reachable at
 | astronomy-engine | MIT | Ephemeris: planetary positions, rise/set, sidereal time |
 | react, react-dom, scheduler | MIT | UI runtime |
 | react-router, react-router-dom, cookie, set-cookie-parser | MIT | Routing |
-| @fontsource/cormorant-garamond, @fontsource/manrope, @fontsource/noto-sans-symbols-2 | OFL-1.1 | Bundled typefaces |
+| @fontsource/cormorant-garamond, @fontsource/manrope | OFL-1.1 | Bundled typefaces |
+| @fontsource/noto-sans-symbols, @fontsource/noto-sans-symbols-2 | OFL-1.1 | Build-time sources for the merged glyph font |
 | vite, @vitejs/plugin-react, vitest | MIT | Build and test tooling (dev only) |
 | typescript | Apache-2.0 | Compiler (dev only) |
 | @types/react, @types/react-dom | MIT | Type declarations (dev only) |
 
-**Fonts and the OFL.** Cormorant Garamond, Manrope and Noto Sans Symbols 2 are
+**Fonts and the OFL.** Cormorant Garamond, Manrope and the Noto symbol faces are
 distributed under the SIL Open Font License 1.1. The OFL permits bundling and
 redistribution with software; it requires that the fonts not be sold on their
-own and that Reserved Font Names not be reused for modified versions. This
-project ships the fonts **unmodified** as published by Fontsource, and does not
-sell them. The complete OFL text is reproduced in the notices.
+own and that Reserved Font Names not be reused for modified versions.
+
+Cormorant Garamond and Manrope ship **unmodified** as published by Fontsource.
+The astrological glyphs do not: `src/assets/fonts/astrosutra-glyphs.woff2` is a
+**subset and merge** of Noto Sans Symbols and Noto Sans Symbols 2, built by
+`scripts/subset-symbols.py`. OFL §3 governs exactly this case — a modified
+version must not carry a Reserved Font Name if one is declared. The Noto Project
+declares none, but the merged face is renamed *AstroSutra Glyphs* regardless, so
+compliance does not rest on that reading. The upstream copyright notice is
+preserved in the font's name table, both sources are credited in the notices,
+and the script verifies both facts on every run. Nothing is sold, and the
+complete OFL text is reproduced in the notices.
 
 `astronomy-engine`, `react-router` and `react-router-dom` publish no LICENSE file
 inside their npm tarballs. Their MIT texts and copyright lines were taken from
@@ -146,7 +156,8 @@ notices, and the source URLs are listed there so the claim can be checked.
 
 ## 6. Fonts, icons and imagery
 
-- **Typefaces**: the three OFL families above. Nothing else is downloaded at
+- **Typefaces**: the three OFL families above (with the two Noto symbol faces
+  merged into one 14 kB file at build time). Nothing else is downloaded at
   runtime; there are no calls to Google Fonts or any third-party CDN.
 - **Icons**: all inline SVG path data, hand-authored for this project
   (`src/components/Icons.tsx`). No icon-font or icon-pack licence applies.

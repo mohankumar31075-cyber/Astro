@@ -265,7 +265,12 @@ export function saveProfile(draft: ProfileDraft, existingId?: string): Profile {
     ...state,
     profiles,
     activeId: existing ? state.activeId : profile.id,
-    settings: { ...state.settings, lastHoroscopeSign: chartForProfile(profile)?.sunSign ?? state.settings.lastHoroscopeSign },
+    // Only a brand-new *first* chart sets the horoscope default; adding a family
+    // member must not change what the reader sees on their own daily page.
+    settings:
+      state.settings.lastHoroscopeSign === null && state.profiles.length === 0
+        ? { ...state.settings, lastHoroscopeSign: chartForProfile(profile)?.moonSign ?? null }
+        : state.settings,
   });
   return profile;
 }

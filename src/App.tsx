@@ -19,18 +19,56 @@ import HowItWorks from './pages/HowItWorks';
 import PacksPage from './pages/PacksPage';
 import NotFound from './pages/NotFound';
 
-function ScrollToTop() {
+const PAGE_TITLES: Record<string, string> = {
+  '/': 'AstroSutra — Vedic astrology, computed',
+  '/welcome': 'Create your chart · AstroSutra',
+  '/how-it-works': 'How the numbers are made · AstroSutra',
+  '/dashboard': 'Today · AstroSutra',
+  '/chart': 'Your birth chart · AstroSutra',
+  '/horoscope': 'Daily reading · AstroSutra',
+  '/match': 'Compatibility · AstroSutra',
+  '/ask': 'Ask Sutra · AstroSutra',
+  '/panchang': 'Panchang & muhurta · AstroSutra',
+  '/reports': 'Your reports · AstroSutra',
+  '/family': 'Your circle · AstroSutra',
+  '/settings': 'Settings & data · AstroSutra',
+  '/learn': 'Astropedia · AstroSutra',
+  '/packs': 'Plans & packs · AstroSutra',
+};
+
+/**
+ * Keeps the tab title, the scroll position and the document language in step
+ * with the route. Every screen used to share one static title, which is poor
+ * for the browser's history, for bookmarks and for screen-reader users moving
+ * between tabs.
+ */
+function RouteEffects() {
   const { pathname } = useLocation();
+
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
   }, [pathname]);
+
+  useEffect(() => {
+    const base =
+      PAGE_TITLES[pathname] ??
+      (pathname.startsWith('/reports/')
+        ? `${pathname.split('/')[2].replace(/^./, (c) => c.toUpperCase())} report · AstroSutra`
+        : pathname.startsWith('/horoscope/')
+          ? `${pathname.split('/')[2].replace(/^./, (c) => c.toUpperCase())} · Daily reading · AstroSutra`
+          : pathname.startsWith('/legal/')
+            ? `${pathname.split('/')[2].replace(/^./, (c) => c.toUpperCase())} · AstroSutra`
+            : 'AstroSutra');
+    document.title = base;
+  }, [pathname]);
+
   return null;
 }
 
 export default function App() {
   return (
     <>
-      <ScrollToTop />
+      <RouteEffects />
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/welcome" element={<Onboarding />} />

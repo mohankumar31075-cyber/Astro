@@ -3,7 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import { Badge, Card, CardTitle, Meter, PageHeader, Stars } from '../components/ui';
 import { IconArrowRight, IconMoonStars, IconPrint, IconSun } from '../components/Icons';
 import { NAKSHATRAS, PLANETS, RASHIS, RASHI_SLUGS } from '../lib/constants';
-import { useActiveChart, useActiveProfile, useAppData } from '../lib/store';
+import { updateSettings, useActiveChart, useActiveProfile, useAppData } from '../lib/store';
 import { dailyHoroscope, personalisedNote, SIGN_PROFILES } from '../lib/horoscope';
 import { phaseName } from '../lib/panchang';
 import { formatLocalTime, isoDate, zonedToUtc } from '../lib/time';
@@ -17,6 +17,13 @@ export default function HoroscopePage() {
   const [sign, setSign] = useState<number>(initialSign);
   const [dateISO, setDateISO] = useState(() => isoDate(new Date(), profile?.birth.timeZone ?? 'Asia/Kolkata'));
   const [mode, setMode] = useState<'moon' | 'sun'>('moon');
+
+  // Remember the sign the reader last looked at, so returning to /horoscope does
+  // not silently jump back to whichever profile was saved most recently.
+  const choose = (next: number) => {
+    setSign(next);
+    updateSettings({ lastHoroscopeSign: next });
+  };
 
   useEffect(() => {
     if (slug && RASHI_SLUGS.includes(slug)) setSign(RASHI_SLUGS.indexOf(slug));
@@ -51,13 +58,20 @@ export default function HoroscopePage() {
               type="date"
               className="input"
               style={{ width: 160 }}
+              aria-label="Reading date"
               value={dateISO}
               onChange={(event) => setDateISO(event.target.value)}
             />
             <button type="button" className="btn btn--ghost btn--small" onClick={() => setDateISO(isoDate(new Date(), place.timeZone))}>
               Today
             </button>
-            <button type="button" className="btn btn--ghost btn--small" onClick={() => window.print()}>
+            <button
+              type="button"
+              className="btn btn--ghost btn--small"
+              onClick={() => window.print()}
+              aria-label="Print this reading"
+              title="Print this reading"
+            >
               <IconPrint />
             </button>
           </>
@@ -185,7 +199,7 @@ export default function HoroscopePage() {
                 type="button"
                 className="btn btn--ghost btn--small btn--full"
                 style={{ marginTop: 10 }}
-                onClick={() => setSign(mode === 'moon' ? chart.moonSign : chart.sunSign)}
+                onClick={() => choose(mode === 'moon' ? chart.moonSign : chart.sunSign)}
               >
                 Use my {mode === 'moon' ? 'Moon' : 'Sun'} sign
               </button>
@@ -201,7 +215,7 @@ export default function HoroscopePage() {
             <button
               key={rashi.index}
               type="button"
-              onClick={() => setSign(rashi.index)}
+              onClick={() => choose(rashi.index)}
               className="stat"
               style={{
                 textAlign: 'left',
